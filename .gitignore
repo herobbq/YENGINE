@@ -1,3 +1,5 @@
 /YEngine/Debug/*
 /YEngine/x64/*
 *pdb
+YEngine.VC.db
+/YEngine/.vs
