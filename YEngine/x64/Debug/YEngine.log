@@ -1,0 +1,13 @@
+﻿  glad.c
+  main.cpp
+main.obj : error LNK2019: 无法解析的外部符号 glfwInit，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwTerminate，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwWindowHint，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwCreateWindow，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwWindowShouldClose，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwPollEvents，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwMakeContextCurrent，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwSwapBuffers，该符号在函数 main 中被引用
+main.obj : error LNK2019: 无法解析的外部符号 glfwGetProcAddress，该符号在函数 main 中被引用
+../3dsparty/GLFW/lib\glfw3.lib : warning LNK4272: 库计算机类型“X86”与目标计算机类型“x64”冲突
+D:\YENGINE\YEngine\x64\Debug\YEngine.exe : fatal error LNK1120: 9 个无法解析的外部命令

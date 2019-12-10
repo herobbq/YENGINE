@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="extern">
+      <UniqueIdentifier>{7da33e9b-1bba-4d19-bec0-c95f9249aa27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceTool">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="RenderBase">
+      <UniqueIdentifier>{2263c212-a03d-45ed-8017-3fb0a814abe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sample">
+      <UniqueIdentifier>{474ffcd2-5481-440b-bfef-5a39148cae6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sample\Triangle-Test">
+      <UniqueIdentifier>{8b1d64a8-036b-457b-8425-b33028e57b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{28af6ef7-7407-4e35-8625-0a7608c709e6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\3dsparty\GLFW\src\glad.c">
+      <Filter>extern</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SourceTool\YLoadShader.cpp">
+      <Filter>SourceTool</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\Ref.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YNode.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YDirector.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YScene.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YRenderCommand.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YCustomCommand.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YCamera.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YRenderer.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\GLView.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SourceTool\Application.cpp">
+      <Filter>SourceTool</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\GLViewImpl.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp">
+      <Filter>Sample\Triangle-Test</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\RenderBase\Ref.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SourceTool\YLoadShader.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YNode.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YDirector.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YScene.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YRenderer.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YRenderCommand.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YCustomCommand.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YCamera.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\GLView.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SourceTool\Application.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\GLViewImpl.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h">
+      <Filter>Sample\Triangle-Test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shader\Triangle.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\Triangle.vs">
+      <Filter>Shader</Filter>
+    </None>
+  </ItemGroup>
+</Project>

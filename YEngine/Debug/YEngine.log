@@ -1,0 +1,6 @@
+﻿  TriangleTest.cpp
+  YRenderer.cpp
+d:\yengine\yengine\src\renderbase\yrenderer.cpp(23): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  YEngine.vcxproj -> D:\YENGINE\YEngine\Debug\YEngine.exe
+  YEngine.vcxproj -> D:\YENGINE\YEngine\Debug\YEngine.pdb (Partial PDB)
