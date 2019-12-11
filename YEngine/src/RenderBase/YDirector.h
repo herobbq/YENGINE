@@ -14,8 +14,10 @@ public:
 	void   PushScene(YScene* scene);
 	void   PopScene(YScene* scene);
 	void   setOpenGLView(GLView *openGLView);
-	void  setNextScene();
+	void   setNextScene();
 	void   mainLoop();
+	void   replaceScene(YScene *scene);
+	void   runWithScene(YScene *scene);
 	GLView* getOpenGLView() { return m_openGLView; }
 protected:
 	void   drawScene();

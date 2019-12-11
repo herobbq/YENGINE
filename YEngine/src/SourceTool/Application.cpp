@@ -26,8 +26,7 @@ int Application::run()
 	YScene* s = YScene::create();
 	auto test = TriangleTest::create();
 	s->addChild(test, 1);
-	director->PushScene(s);
-	director->setNextScene();
+	director->replaceScene(s);
 	
 	while (!_glview->windowShouldClose())
 	{

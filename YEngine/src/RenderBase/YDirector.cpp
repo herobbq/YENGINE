@@ -69,12 +69,50 @@ void YDirector::mainLoop()
 	drawScene();
 }
 
+void YDirector::replaceScene(YScene *scene)
+{
+	if (m_RuingScene == nullptr)
+	{
+		runWithScene(scene);
+		return;
+	}
+	if (scene == m_NextScene)
+	{
+		return;
+	}
+	if (m_NextScene)
+	{
+		
+		m_NextScene = nullptr;
+	}
+
+	size_t index = m_SceneStack.size() - 1;
+
+
+	m_SceneStack.pop();
+	m_SceneStack.push(scene);
+
+	m_NextScene = scene;
+}
+
+void YDirector::runWithScene(YScene *scene)
+{
+	
+	PushScene(scene);
+}
+
 void YDirector::drawScene()
 {
 	if (m_openGLView)
 	{
 		m_openGLView->pollEvents();
 	}
+	m_renderer->clear();
+	if (m_NextScene)
+	{
+		setNextScene();
+	}
+
 	if (m_RuingScene)
 	{
 		if (m_openGLView)

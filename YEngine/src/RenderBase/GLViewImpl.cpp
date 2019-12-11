@@ -2,6 +2,7 @@
 #include <glad/glad.h> 
 #include <glfw3.h>
 #include <iostream>
+GLViewImpl* GLFWEventHandler::_view = nullptr;
 GLViewImpl* GLViewImpl::create(const std::string& viewName)
 {
 	return GLViewImpl::create(viewName, false);
@@ -19,6 +20,14 @@ GLViewImpl* GLViewImpl::create(const std::string& viewName, bool resizable)
 	return nullptr;
 }
 
+bool GLViewImpl::windowShouldClose()
+{
+	if (m_window)
+		return glfwWindowShouldClose(m_window) ? true : false;
+	else
+		return true;
+}
+
 void GLViewImpl::pollEvents()
 {
 	glfwPollEvents();
@@ -26,6 +35,7 @@ void GLViewImpl::pollEvents()
 
 GLViewImpl::GLViewImpl(bool initglfw /*= true*/)
 {
+	GLFWEventHandler::setGLViewImpl(this);
 	if (initglfw)
 	{
 		//glfwSetErrorCallback(GLFWEventHandler::onGLFWError);
@@ -38,6 +48,7 @@ GLViewImpl::GLViewImpl(bool initglfw /*= true*/)
 
 GLViewImpl::~GLViewImpl()
 {
+	GLFWEventHandler::setGLViewImpl(nullptr);
 	glfwTerminate();
 }
 
@@ -53,7 +64,16 @@ bool GLViewImpl::initWithRect(const std::string& viewName, int width , int heigh
 		return false;
 	}
 	glfwMakeContextCurrent(m_window);
-	
+	glfwSetMouseButtonCallback(m_window, GLFWEventHandler::onGLFWMouseCallBack);
+	glfwSetCursorPosCallback(m_window, GLFWEventHandler::onGLFWMouseMoveCallBack);
+	glfwSetScrollCallback(m_window, GLFWEventHandler::onGLFWMouseScrollCallback);
+	glfwSetCharCallback(m_window, GLFWEventHandler::onGLFWCharCallback);
+	glfwSetKeyCallback(m_window, GLFWEventHandler::onGLFWKeyCallback);
+	glfwSetWindowPosCallback(m_window, GLFWEventHandler::onGLFWWindowPosCallback);
+	glfwSetFramebufferSizeCallback(m_window, GLFWEventHandler::onGLFWframebuffersize);
+	glfwSetWindowSizeCallback(m_window, GLFWEventHandler::onGLFWWindowSizeFunCallback);
+	glfwSetWindowIconifyCallback(m_window, GLFWEventHandler::onGLFWWindowIconifyCallback);
+	glfwSetWindowFocusCallback(m_window, GLFWEventHandler::onGLFWWindowFocusCallback);
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
@@ -76,4 +96,60 @@ void GLViewImpl::swapBuffers()
 		
 	}
 }
+
+void GLViewImpl::onGLFWError(int errorID, const char* errorDesc)
+{
+	
+}
+
+void GLViewImpl::onGLFWMouseCallBack(GLFWwindow* window, int button, int action, int modify)
+{
+
+}
+
+void GLViewImpl::onGLFWMouseMoveCallBack(GLFWwindow* window, double x, double y)
+{
+
+}
+
+void GLViewImpl::onGLFWMouseScrollCallback(GLFWwindow* window, double x, double y)
+{
+
+}
+
+void GLViewImpl::onGLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+
+}
+
+void GLViewImpl::onGLFWCharCallback(GLFWwindow* window, unsigned int character)
+{
+
+}
+
+void GLViewImpl::onGLFWWindowPosCallback(GLFWwindow* windows, int x, int y)
+{
+
+}
+
+void GLViewImpl::onGLFWframebuffersize(GLFWwindow* window, int w, int h)
+{
+	glViewport(0, 0, w, h);
+}
+
+void GLViewImpl::onGLFWWindowSizeFunCallback(GLFWwindow *window, int width, int height)
+{
+
+}
+
+void GLViewImpl::onGLFWWindowIconifyCallback(GLFWwindow* window, int iconified)
+{
+
+}
+
+void GLViewImpl::onGLFWWindowFocusCallback(GLFWwindow* window, int focused)
+{
+
+}
+
 

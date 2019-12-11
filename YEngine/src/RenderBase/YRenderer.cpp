@@ -27,6 +27,14 @@ void YRenderer::clean()
 	m_renderGroups.clear();
 }
 
+void YRenderer::clear()
+{
+	glDepthMask(true);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glDepthMask(false);
+}
+
 void YRenderer::processRenderCommand(YRenderCommand* command)
 {
 	auto cmd = static_cast<YCustomCommand*>(command);

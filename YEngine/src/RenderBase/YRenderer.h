@@ -57,6 +57,7 @@ public:
 public:
 	void addCommand(YRenderCommand* command);
 	void clean();
+	void clear();
 protected:
 	void processRenderCommand(YRenderCommand* command);
 	void visitRenderQueue(RenderQueue& queue);
