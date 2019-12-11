@@ -1,5 +1,7 @@
 /YEngine/Debug/*
 /YEngine/x64/*
+/YEngine/Debug
 *pdb
+/YEngine/.vs/*
+/YEngine/.vs/mkt/
 YEngine.VC.db
-/YEngine/.vs
