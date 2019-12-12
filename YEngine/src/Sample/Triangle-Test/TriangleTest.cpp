@@ -4,7 +4,7 @@
 #include "YLoadShader.h"
 
 #include <glfw3.h>
-
+#include "GLProgram.h"
 TriangleTest::TriangleTest()
 	:m_shader(nullptr)
 {
@@ -57,8 +57,11 @@ void TriangleTest::initBuffers()
 	glBindVertexArray(m_VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	m_shader->use();
+	unsigned int pos = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_POSITION);
+	glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(pos);
 	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	//glBindVertexArray(0);

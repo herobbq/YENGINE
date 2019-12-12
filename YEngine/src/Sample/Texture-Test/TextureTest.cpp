@@ -3,8 +3,8 @@
 #include <glfw3.h>
 #include "YRenderer.h"
 #include "YLoadShader.h"
-
-
+#include "GLProgram.h"
+#include "YTexture.h"
 TextureTest::TextureTest()
 	:m_shader(nullptr)
 {
@@ -39,7 +39,7 @@ void TextureTest::draw(YRenderer* renderer, const glm::mat4& transform, uint32_t
 
 bool TextureTest::init()
 {
-	m_shader = new YShader("./src/Shader/Triangle.vs", "./src/Shader/Triangle.fs");
+	m_shader = new YShader("./src/Shader/Texture.vs", "./src/Shader/Texture.fs");
 	initBuffers();
 	return true;
 }
@@ -53,18 +53,54 @@ void TextureTest::initBuffers()
 		-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
 		-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
 	};
+	unsigned int indices[] = {
+		0, 1, 3, // first triangle
+		1, 2, 3  // second triangle
+	};
 	glGenVertexArrays(1, &m_VAO);
-	glBindVertexArray(m_VAO);
+	
 	glGenBuffers(1, &m_VBO);
+	glGenBuffers(1, &m_EBO);
+
+	glBindVertexArray(m_VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 	m_shader->use();
 
-//	glGetAttribLocation(m_shader->ID,"")
+	m_positionAttributeLocation = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_POSITION);
+	m_ColorAttributeLocation = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_COLOR);
+	m_TextureAttributeLocation = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_TEX_COORD);
+
+	glVertexAttribPointer(m_positionAttributeLocation, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), nullptr);
+	glEnableVertexAttribArray(m_positionAttributeLocation);
+
+	glVertexAttribPointer(m_ColorAttributeLocation, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(m_ColorAttributeLocation);
+	glVertexAttribPointer(m_TextureAttributeLocation, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(m_TextureAttributeLocation);
+
+	m_Texture1 = YTexture::CreateText("src/Texture/container.jpg");
+	m_Texture2 = YTexture::CreateText("src/Texture/awesomeface.png", YTexture::IMAGE_RGBA);
+
+	m_shader->SetInt("texture1", 0);
+	m_shader->SetInt("texture2", 1);
+	glBindVertexArray(0);
+
 }
 
 void TextureTest::onDraw(const glm::mat4* transform, uint32_t)
 {
+	m_shader->use();
+	glBindVertexArray(m_VAO);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, m_Texture1);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_2D, m_Texture2);
+
+	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	
 
 }
 

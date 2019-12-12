@@ -24,6 +24,9 @@ protected:
 	YShader*    m_shader;
 	unsigned int m_VBO;
 	unsigned int m_VAO;
+	unsigned int m_EBO;
+	unsigned int m_Texture1;
+	unsigned int m_Texture2;
 	GLint  m_positionAttributeLocation;
 	GLint  m_ColorAttributeLocation;
 	GLint  m_TextureAttributeLocation;

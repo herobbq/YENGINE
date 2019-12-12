@@ -73,7 +73,7 @@
     <LibraryPath>../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\3dsparty\GLFW\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="..\3dsparty\GLFW\src\glad.c" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\RenderBase\GLProgram.cpp" />
     <ClCompile Include="src\RenderBase\GLView.cpp" />
     <ClCompile Include="src\RenderBase\GLViewImpl.cpp" />
     <ClCompile Include="src\RenderBase\Ref.cpp" />
@@ -135,12 +136,15 @@
     <ClCompile Include="src\RenderBase\YRenderCommand.cpp" />
     <ClCompile Include="src\RenderBase\YRenderer.cpp" />
     <ClCompile Include="src\RenderBase\YScene.cpp" />
+    <ClCompile Include="src\RenderBase\YTexture.cpp" />
     <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp" />
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp" />
     <ClCompile Include="src\SourceTool\Application.cpp" />
     <ClCompile Include="src\SourceTool\YLoadShader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\3dsparty\Imgae\stb_image.h" />
+    <ClInclude Include="src\RenderBase\GLProgram.h" />
     <ClInclude Include="src\RenderBase\GLView.h" />
     <ClInclude Include="src\RenderBase\GLViewImpl.h" />
     <ClInclude Include="src\RenderBase\Ref.h" />
@@ -151,12 +155,15 @@
     <ClInclude Include="src\RenderBase\YRenderCommand.h" />
     <ClInclude Include="src\RenderBase\YRenderer.h" />
     <ClInclude Include="src\RenderBase\YScene.h" />
+    <ClInclude Include="src\RenderBase\YTexture.h" />
     <ClInclude Include="src\Sample\Texture-Test\TextureTest.h" />
     <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h" />
     <ClInclude Include="src\SourceTool\Application.h" />
     <ClInclude Include="src\SourceTool\YLoadShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\Shader\Texture.fs" />
+    <None Include="src\Shader\Texture.vs" />
     <None Include="src\Shader\Triangle.fs" />
     <None Include="src\Shader\Triangle.vs" />
   </ItemGroup>

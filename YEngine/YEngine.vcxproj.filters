@@ -81,6 +81,12 @@
     <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp">
       <Filter>Sample\Texture-Test</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderBase\GLProgram.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YTexture.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\RenderBase\Ref.h">
@@ -125,12 +131,27 @@
     <ClInclude Include="src\Sample\Texture-Test\TextureTest.h">
       <Filter>Sample\Texture-Test</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderBase\GLProgram.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\3dsparty\Imgae\stb_image.h">
+      <Filter>extern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YTexture.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\Triangle.fs">
       <Filter>Shader</Filter>
     </None>
     <None Include="src\Shader\Triangle.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\Texture.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\Texture.vs">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>
