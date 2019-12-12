@@ -28,6 +28,9 @@
     <Filter Include="Shader">
       <UniqueIdentifier>{28af6ef7-7407-4e35-8625-0a7608c709e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\Texture-Test">
+      <UniqueIdentifier>{a5d82a4d-d053-47dd-8e3e-3b83cc9e42a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3dsparty\GLFW\src\glad.c">
@@ -75,6 +78,9 @@
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp">
       <Filter>Sample\Triangle-Test</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp">
+      <Filter>Sample\Texture-Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\RenderBase\Ref.h">
@@ -115,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h">
       <Filter>Sample\Triangle-Test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\Texture-Test\TextureTest.h">
+      <Filter>Sample\Texture-Test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
