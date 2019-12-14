@@ -1,6 +1,8 @@
 #include "YScene.h"
 #include "YRenderer.h"
+#include "YCamera.h"
 YScene::YScene()
+	:m_defaultCamera(YCamera::Create())
 {
 
 }
@@ -32,6 +34,10 @@ void YScene::render(YRenderer* renderer, const glm::mat4& eyeTransform, const gl
 
 void YScene::render(YRenderer* renderer, const glm::mat4* eyeTransforms, const glm::mat4* eyeProjections, unsigned int multiViewCount)
 {
+	if (YCamera::GetVisitingCamera()!=m_defaultCamera)
+	{
+		YCamera::m_visitingCamera = m_defaultCamera;
+	}
 	visit(renderer, m_transform, 0);
 	renderer->render();
 }

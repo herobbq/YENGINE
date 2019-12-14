@@ -49,7 +49,7 @@ void YRenderer::visitRenderQueue(RenderQueue& queue)
 	{
 		//Clear depth to achieve layered rendering
 		glEnable(GL_DEPTH_TEST);
-		//glDepthMask(true);
+		glDepthMask(true);
 		//glDisable(GL_BLEND);
 		//glEnable(GL_CULL_FACE);
 

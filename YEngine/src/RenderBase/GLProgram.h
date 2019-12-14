@@ -3,6 +3,12 @@
 class GLProgram
 {
 public:
+	static const char* UNIFORM_NAME_MODEL;
+	static const char* UNIFORM_NAME_VIEW;
+	static const char* UNIFORM_NAME_PROJECTION;
+	static const char* UNIFORM_NAME_TEXTURE1;
+	static const char* UNIFORM_NAME_TEXTURE2;
+public:
 	static const char* ATTRIBUTE_NAME_COLOR;
 	/**Attribute position.*/
 	static const char* ATTRIBUTE_NAME_POSITION;

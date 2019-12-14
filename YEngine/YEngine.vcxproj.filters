@@ -31,6 +31,9 @@
     <Filter Include="Sample\Texture-Test">
       <UniqueIdentifier>{a5d82a4d-d053-47dd-8e3e-3b83cc9e42a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\Camera-Test">
+      <UniqueIdentifier>{0fb99bdc-31a9-4133-a06a-0a059cc4f452}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\3dsparty\GLFW\src\glad.c">
@@ -87,6 +90,12 @@
     <ClCompile Include="src\RenderBase\YTexture.cpp">
       <Filter>RenderBase</Filter>
     </ClCompile>
+    <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp">
+      <Filter>Sample\Camera-Test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SourceTool\YType.cpp">
+      <Filter>SourceTool</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\RenderBase\Ref.h">
@@ -140,6 +149,12 @@
     <ClInclude Include="src\RenderBase\YTexture.h">
       <Filter>RenderBase</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sample\Camera-Test\CameraTest.h">
+      <Filter>Sample\Camera-Test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SourceTool\YType.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\Triangle.fs">
@@ -152,6 +167,12 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="src\Shader\Texture.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\CameraTest.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\CameraTest.vs">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

@@ -3,7 +3,7 @@
 
 #include "YNode.h"
 #include "YCustomCommand.h"
-#include "glm/glm.hpp"
+#include "YType.h"
 
 class YShader;
 class TriangleTest :public YNode

@@ -2,6 +2,9 @@
 #include "GLView.h"
 #include "YScene.h"
 #include "YRenderer.h"
+#include "YCamera.h"
+float     m_deltaTime = 0.0f;	// time between current frame and last frame
+float     m_lastFrame = 0.0f;
 YDirector::YDirector()
 	:m_openGLView(nullptr)
 	, m_renderer(nullptr)
@@ -66,6 +69,9 @@ void YDirector::setNextScene()
 
 void YDirector::mainLoop()
 {
+	float curTime = glfwGetTime();
+	m_deltaTime = curTime - m_lastFrame;
+	m_lastFrame = curTime;
 	drawScene();
 }
 
@@ -101,8 +107,25 @@ void YDirector::runWithScene(YScene *scene)
 	PushScene(scene);
 }
 
+YSize& YDirector::getWinsize()
+{
+	return m_openGLView->getViewSize();
+}
+
+
+
+GLFWwindow* YDirector::getGLwindow()
+{
+	if(m_openGLView)
+	{
+		return m_openGLView->getCurWindow();
+	}
+	return nullptr;
+}
+
 void YDirector::drawScene()
 {
+	
 	if (m_openGLView)
 	{
 		m_openGLView->pollEvents();

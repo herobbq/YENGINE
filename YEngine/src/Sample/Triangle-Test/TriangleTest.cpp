@@ -13,7 +13,7 @@ TriangleTest::TriangleTest()
 
 TriangleTest::~TriangleTest()
 {
-
+	delete m_shader;
 }
 
 TriangleTest* TriangleTest::create()

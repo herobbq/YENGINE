@@ -1,24 +1,31 @@
-#ifndef YTEXTURETEST_H_
-#define YTEXTURETEST_H_
+#ifndef CAMERATEST_H_
+#define CAMERATEST_H_
+
 
 #include "YNode.h"
 #include "YCustomCommand.h"
 #include "YType.h"
 #include <glad/glad.h> 
 class YShader;
-class TextureTest :public YNode
+class GLFWwindow;
+class CameraTest :public YNode
 {
+
+	
 public:
-	TextureTest();
-	virtual ~TextureTest();
+	CameraTest();
+	virtual ~CameraTest();
 public:
-	static TextureTest* create();
+	static CameraTest* create();
 	virtual void draw(YRenderer* renderer, const glm::mat4& transform, uint32_t flags) override;
+
 	//virtual void onDraw();
 protected:
 	virtual bool init() override;
 	virtual void initBuffers();
 	void onDraw(const glm::mat4* transform, uint32_t);
+	void   processInput(GLFWwindow *window);
+	
 protected:
 	YCustomCommand m_customCommand;
 	YShader*    m_shader;
@@ -27,12 +34,12 @@ protected:
 	unsigned int m_EBO;
 	unsigned int m_Texture1;
 	unsigned int m_Texture2;
+	float     m_deltaTime;	// time between current frame and last frame
+	float     m_lastFrame;
+	
 	GLint  m_positionAttributeLocation;
 	GLint  m_ColorAttributeLocation;
 	GLint  m_TextureAttributeLocation;
 };
-
-
-
-#endif
-
+#pragma once
+#endif // CAMERATEST_H_

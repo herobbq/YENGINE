@@ -5,6 +5,7 @@
 #include "TriangleTest.h"
 #include "YScene.h"
 #include "TextureTest.h"
+#include "CameraTest.h"
 Application::Application()
 {
 
@@ -25,7 +26,7 @@ int Application::run()
 		director->setOpenGLView(_glview);
 	}
 	YScene* s = YScene::create();
-	auto test = TextureTest::create();
+	auto test = CameraTest::create();
 	s->addChild(test, 1);
 	director->replaceScene(s);
 	

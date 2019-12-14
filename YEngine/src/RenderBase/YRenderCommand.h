@@ -1,6 +1,6 @@
 #ifndef YRENDERCOMMAND_H_
 #define YRENDERCOMMAND_H_
-#include "glm/glm.hpp"
+#include "YType.h"
 
 class YRenderCommand
 {

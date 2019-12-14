@@ -2,6 +2,7 @@
 #include "YScene.h"
 GLView::GLView()
 	:m_window(nullptr)
+	
 {
 
 }

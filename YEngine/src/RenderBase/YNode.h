@@ -2,7 +2,7 @@
 #define YENGINE_YNODE_H_
 #include "Ref.h"
 #include <string>
-#include "glm/glm.hpp"
+#include "YType.h"
 #include <vector>
 class YRenderer;
 class YNode :public Ref

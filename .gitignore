@@ -2,6 +2,8 @@
 /YEngine/x64/*
 /YEngine/Debug
 *pdb
+*exe
+*ilk
 /YEngine/.vs/*
 /YEngine/.vs/mkt/
 YEngine.VC.db

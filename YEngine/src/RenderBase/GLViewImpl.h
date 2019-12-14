@@ -30,6 +30,7 @@ protected:
 	void onGLFWWindowFocusCallback(GLFWwindow* window, int focused);
 protected:
 	std::string _glfwError;
+	
 };
 class  GLFWEventHandler
 {

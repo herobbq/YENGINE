@@ -13,7 +13,7 @@ TextureTest::TextureTest()
 
 TextureTest::~TextureTest()
 {
-
+	delete m_shader;
 }
 TextureTest* TextureTest::create()
 {
@@ -81,11 +81,11 @@ void TextureTest::initBuffers()
 	glVertexAttribPointer(m_TextureAttributeLocation, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(m_TextureAttributeLocation);
 
-	m_Texture1 = YTexture::CreateText("src/Texture/container.jpg");
-	m_Texture2 = YTexture::CreateText("src/Texture/awesomeface.png", YTexture::IMAGE_RGBA);
+	m_Texture1 = YTexture::CreateText("src/Sample/Texture-Test/Texture/container.jpg");
+	m_Texture2 = YTexture::CreateText("src/Sample/Texture-Test/Texture/awesomeface.png", YTexture::IMAGE_RGBA);
 
-	m_shader->SetInt("texture1", 0);
-	m_shader->SetInt("texture2", 1);
+	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE1, 0);
+	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE2, 1);
 	glBindVertexArray(0);
 
 }

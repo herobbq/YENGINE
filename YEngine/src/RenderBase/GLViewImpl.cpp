@@ -2,6 +2,7 @@
 #include <glad/glad.h> 
 #include <glfw3.h>
 #include <iostream>
+#include "YCamera.h"
 GLViewImpl* GLFWEventHandler::_view = nullptr;
 GLViewImpl* GLViewImpl::create(const std::string& viewName)
 {
@@ -30,6 +31,7 @@ bool GLViewImpl::windowShouldClose()
 
 void GLViewImpl::pollEvents()
 {
+	
 	glfwPollEvents();
 }
 
@@ -63,6 +65,8 @@ bool GLViewImpl::initWithRect(const std::string& viewName, int width , int heigh
 		glfwTerminate();
 		return false;
 	}
+	m_size.width = width;
+	m_size.height = height;
 	glfwMakeContextCurrent(m_window);
 	glfwSetMouseButtonCallback(m_window, GLFWEventHandler::onGLFWMouseCallBack);
 	glfwSetCursorPosCallback(m_window, GLFWEventHandler::onGLFWMouseMoveCallBack);
@@ -92,6 +96,7 @@ void GLViewImpl::swapBuffers()
 {
 	if (m_window)
 	{
+		
 		glfwSwapBuffers(m_window);
 		
 	}
@@ -119,7 +124,19 @@ void GLViewImpl::onGLFWMouseScrollCallback(GLFWwindow* window, double x, double 
 
 void GLViewImpl::onGLFWKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-
+	/*if (YCamera* _camera = YCamera::m_visitingCamera)
+	{
+		
+		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::FORWARD, m_deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::BACKWARD, m_deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::LEFT, m_deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::RIGHT, m_deltaTime);
+	}*/
+	
 }
 
 void GLViewImpl::onGLFWCharCallback(GLFWwindow* window, unsigned int character)
@@ -135,6 +152,8 @@ void GLViewImpl::onGLFWWindowPosCallback(GLFWwindow* windows, int x, int y)
 void GLViewImpl::onGLFWframebuffersize(GLFWwindow* window, int w, int h)
 {
 	glViewport(0, 0, w, h);
+	m_size.width= w;
+	m_size.height = h;
 }
 
 void GLViewImpl::onGLFWWindowSizeFunCallback(GLFWwindow *window, int width, int height)

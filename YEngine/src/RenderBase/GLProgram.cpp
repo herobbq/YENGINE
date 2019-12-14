@@ -1,4 +1,15 @@
 #include "GLProgram.h"
+
+const char* GLProgram::UNIFORM_NAME_MODEL = "u_model";
+
+const char* GLProgram::UNIFORM_NAME_VIEW = "u_view";
+
+const char* GLProgram::UNIFORM_NAME_PROJECTION  = "u_projection";
+
+const char* GLProgram::UNIFORM_NAME_TEXTURE1 = "u_texture1";
+
+const char* GLProgram::UNIFORM_NAME_TEXTURE2 = "u_texture2";
+
 // Attribute names
 const char* GLProgram::ATTRIBUTE_NAME_COLOR = "a_color";
 const char* GLProgram::ATTRIBUTE_NAME_POSITION = "a_position";

@@ -1,9 +1,12 @@
 #ifndef YDIRECTOR_H_
 #define YDIRECTOR_H_
 #include <stack>
+#include "YType.h"
+
 class YScene;
 class GLView;
 class YRenderer;
+class GLFWwindow;
 class YDirector
 {
 private:
@@ -19,6 +22,8 @@ public:
 	void   replaceScene(YScene *scene);
 	void   runWithScene(YScene *scene);
 	GLView* getOpenGLView() { return m_openGLView; }
+	YSize&  getWinsize();
+	GLFWwindow* getGLwindow();
 protected:
 	void   drawScene();
 	
