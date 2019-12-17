@@ -1,11 +1,12 @@
+#include "CameraTest.h"
 #include "Application.h"
 #include "YDirector.h"
 #include "GLView.h"
 #include "GLViewImpl.h"
-#include "TriangleTest.h"
+// #include "TriangleTest.h"
 #include "YScene.h"
-#include "TextureTest.h"
-#include "CameraTest.h"
+//#include "TextureTest.h"
+
 Application::Application()
 {
 

@@ -4,7 +4,7 @@
 #include "YNode.h"
 #include "YCustomCommand.h"
 #include "YType.h"
-#include <glad/glad.h> 
+
 class YShader;
 class TextureTest :public YNode
 {
@@ -27,9 +27,9 @@ protected:
 	unsigned int m_EBO;
 	unsigned int m_Texture1;
 	unsigned int m_Texture2;
-	GLint  m_positionAttributeLocation;
-	GLint  m_ColorAttributeLocation;
-	GLint  m_TextureAttributeLocation;
+	int  m_positionAttributeLocation;
+	int  m_ColorAttributeLocation;
+	int  m_TextureAttributeLocation;
 };
 
 

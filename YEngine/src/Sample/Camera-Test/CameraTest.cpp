@@ -1,4 +1,7 @@
 #include "CameraTest.h"
+
+#define GLEW_STATIC
+#include "glew.h"
 #include "YLoadShader.h"
 #include "YRenderer.h"
 #include "GLProgram.h"

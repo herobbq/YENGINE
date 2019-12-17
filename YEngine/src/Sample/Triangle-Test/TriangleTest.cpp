@@ -1,4 +1,5 @@
-#include <glad/glad.h> 
+#define GLEW_STATIC
+#include "glew.h"
 #include "TriangleTest.h"
 #include "YRenderer.h"
 #include "YLoadShader.h"

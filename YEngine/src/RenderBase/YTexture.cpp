@@ -1,4 +1,5 @@
-#include "glad/glad.h"
+#define GLEW_STATIC
+#include "glew.h"
 #include "YTexture.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -42,7 +43,9 @@ bool YTexture::init()
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		if (m_type==IMAGE_RGB)
 		{
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glTexStorage2D(GL_TEXTURE_2D, 1 , GL_RGB8, width, height);
+			glTexSubImage2D(GL_TEXTURE_2D, 0,0,0,  width, height, GL_RGB, GL_UNSIGNED_BYTE, data);
+		//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 		}else if (m_type == IMAGE_RGBA)
 		{
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);

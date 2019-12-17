@@ -1,5 +1,6 @@
 #include "GLViewImpl.h"
-#include <glad/glad.h> 
+#define GLEW_STATIC
+#include "glew.h"
 #include <glfw3.h>
 #include <iostream>
 #include "YCamera.h"
@@ -78,7 +79,7 @@ bool GLViewImpl::initWithRect(const std::string& viewName, int width , int heigh
 	glfwSetWindowSizeCallback(m_window, GLFWEventHandler::onGLFWWindowSizeFunCallback);
 	glfwSetWindowIconifyCallback(m_window, GLFWEventHandler::onGLFWWindowIconifyCallback);
 	glfwSetWindowFocusCallback(m_window, GLFWEventHandler::onGLFWWindowFocusCallback);
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	if (glewInit()!=GLEW_OK)
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		return false;

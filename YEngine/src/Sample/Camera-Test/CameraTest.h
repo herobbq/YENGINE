@@ -2,10 +2,12 @@
 #define CAMERATEST_H_
 
 
+
 #include "YNode.h"
 #include "YCustomCommand.h"
 #include "YType.h"
-#include <glad/glad.h> 
+
+
 class YShader;
 class GLFWwindow;
 class CameraTest :public YNode
@@ -37,9 +39,9 @@ protected:
 	float     m_deltaTime;	// time between current frame and last frame
 	float     m_lastFrame;
 	
-	GLint  m_positionAttributeLocation;
-	GLint  m_ColorAttributeLocation;
-	GLint  m_TextureAttributeLocation;
+	int  m_positionAttributeLocation;
+	int  m_ColorAttributeLocation;
+	int  m_TextureAttributeLocation;
 };
 #pragma once
 #endif // CAMERATEST_H_
