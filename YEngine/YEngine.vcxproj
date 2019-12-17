@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>../3dsparty/GLFW/include/glad;../3dsparty/GLFW/include/;../3dsparty/GLFW/include/KHR;$(IncludePath)</IncludePath>
-    <LibraryPath>../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>../3dsparty/GLFW/include/glad;../3dsparty/glew/include/;../3dsparty/GLFW/include/;../3dsparty/GLFW/include/KHR;./src/Shader;./src/Sample/Triangle-Test;./src/Sample/Texture-Test;./src/Sample/Camera-Test;./src/Sample;./src/SourceTool;./src/RenderBase;./src;$(IncludePath)</IncludePath>
+    <LibraryPath>../3dsparty/glew/lib;../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
@@ -94,7 +94,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
