@@ -83,7 +83,7 @@ void TextureTest::initBuffers()
 	glEnableVertexAttribArray(m_TextureAttributeLocation);
 
 	m_Texture1 = YTexture::CreateText("src/Sample/Texture-Test/Texture/container.jpg");
-	m_Texture2 = YTexture::CreateText("src/Sample/Texture-Test/Texture/awesomeface.png", YTexture::IMAGE_RGBA);
+	m_Texture2 = YTexture::CreateText("src/Sample/Texture-Test/Texture/awesomeface.png");
 
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE1, 0);
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE2, 1);

@@ -10,12 +10,11 @@ public:
 	    IMAGE_RGBA
 	};
 public:
-	YTexture(const char* _path, ImageType _type=IMAGE_RGB);
+	YTexture(const char* _path);
 	virtual ~YTexture();
 
 public:
 	static unsigned int CreateText(const char* _path);
-	static unsigned int CreateText(const char* _path, ImageType _type);
 protected:
 	bool init();
 protected:

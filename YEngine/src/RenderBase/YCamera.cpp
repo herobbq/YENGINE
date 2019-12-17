@@ -1,6 +1,6 @@
 #include"YCamera.h"
 #include "YDirector.h"
-
+#include"glfw3.h"
 
 
 YCamera* YCamera::m_visitingCamera = nullptr;
@@ -93,6 +93,10 @@ void YCamera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
 		m_vPostion -= m_vRight * velocity;
 	if (direction == RIGHT)
 		m_vPostion += m_vRight * velocity;
+	if (direction == UP)
+		m_vPostion += m_vUp * velocity;
+	if (direction == DOWN)
+		m_vPostion -= m_vUp * velocity;
 	updateCameraParam();
 }
 
@@ -151,4 +155,27 @@ void YCamera::scroll_callback(GLFWwindow* window, double xoffset, double yoffset
 		m_visitingCamera->ProcessMouseScroll(yoffset);
 	}
 
+}
+
+
+
+void YCamera::processInput(GLFWwindow *window, float deltaTime)
+{
+	if (YCamera* _camera = YCamera::m_visitingCamera)
+	{
+		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+			glfwSetWindowShouldClose(window, true);
+		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::FORWARD, deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::BACKWARD, deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::LEFT, deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::RIGHT, deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::DOWN, deltaTime);
+		if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+			_camera->ProcessKeyboard(YCamera::UP, deltaTime);
+	}
 }

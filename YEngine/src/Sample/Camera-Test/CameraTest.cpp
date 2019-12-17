@@ -122,7 +122,7 @@ void CameraTest::initBuffers()
 	glEnableVertexAttribArray(m_TextureAttributeLocation);
 
 	m_Texture1 = YTexture::CreateText("src/Sample/Camera-Test/Texture/container.jpg");
-	m_Texture2 = YTexture::CreateText("src/Sample/Camera-Test/Texture/awesomeface.png", YTexture::IMAGE_RGBA);
+	m_Texture2 = YTexture::CreateText("src/Sample/Camera-Test/Texture/awesomeface.png");
 
 	glUniform1i(glGetUniformLocation(m_shader->GetProgram(), GLProgram::UNIFORM_NAME_TEXTURE1),0);
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE2, 1);
@@ -138,7 +138,7 @@ void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 	float curTime = glfwGetTime();
 	m_deltaTime = curTime - m_lastFrame;
 	m_lastFrame = curTime;
-	processInput(YDirector::GetInstance()->getGLwindow());
+	YCamera::processInput(YDirector::GetInstance()->getGLwindow(),m_deltaTime);
 	glm::vec3 cubePositions[] = {
 		glm::vec3(0.0f,  0.0f,  0.0f),
 		glm::vec3(2.0f,  5.0f, -15.0f),
@@ -177,22 +177,7 @@ void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 	
 }
 
-void CameraTest::processInput(GLFWwindow *window)
-{
-	if (YCamera* _camera = YCamera::m_visitingCamera)
-	{
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-			glfwSetWindowShouldClose(window, true);
-		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-			_camera->ProcessKeyboard(YCamera::FORWARD, m_deltaTime);
-		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-			_camera->ProcessKeyboard(YCamera::BACKWARD, m_deltaTime);
-		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-			_camera->ProcessKeyboard(YCamera::LEFT, m_deltaTime);
-		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-			_camera->ProcessKeyboard(YCamera::RIGHT, m_deltaTime);
-	}
-}
+
 
 
 

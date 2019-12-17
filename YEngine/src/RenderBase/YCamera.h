@@ -10,7 +10,9 @@ enum Camera_Movement {
 		FORWARD,
 		BACKWARD,
 		LEFT,
-		RIGHT
+		RIGHT,
+		UP,
+		DOWN
 	};
 	friend class YScene;
 	friend class YDirector;
@@ -32,6 +34,7 @@ public:
 	void ProcessMouseScroll(float yoffset);
 	static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 	static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+	static void   processInput(GLFWwindow *window,float deltaTime);
 public:
 	static YCamera* m_visitingCamera;
 protected:

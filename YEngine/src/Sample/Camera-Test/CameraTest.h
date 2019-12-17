@@ -26,7 +26,7 @@ protected:
 	virtual bool init() override;
 	virtual void initBuffers();
 	void onDraw(const glm::mat4* transform, uint32_t);
-	void   processInput(GLFWwindow *window);
+	
 	
 protected:
 	YCustomCommand m_customCommand;
