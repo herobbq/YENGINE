@@ -36,9 +36,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\3dsparty\GLFW\src\glad.c">
-      <Filter>extern</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
