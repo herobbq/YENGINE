@@ -152,10 +152,16 @@ void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 		glm::vec3(-1.3f,  1.0f, -1.5f)
 	};
 	m_shader->use();
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_Texture1);
-	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, m_Texture2);
+	#ifdef TextureUnit
+		glBindTextureUnit(0, m_Texture1);
+		glBindTextureUnit(1, m_Texture2);
+	#else
+		glActiveTexture(GL_TEXTURE0);
+	    glBindTexture(GL_TEXTURE_2D, m_Texture1);
+	    glActiveTexture(GL_TEXTURE1);
+	    glBindTexture(GL_TEXTURE_2D, m_Texture2);
+    #endif // DEBUG
+
 	// pass transformation matrices to the shader
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix()); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, YCamera::m_visitingCamera->getViewMatrix());

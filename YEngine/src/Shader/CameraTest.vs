@@ -11,5 +11,5 @@ attribute vec2 a_texCoord;
  void main()
  {
    gl_Position = u_projection * u_view * u_model * vec4(a_position,1.0);
-   texCoord = vec2(a_texCoord.x, 1.0 - a_texCoord.y);
+   texCoord = vec2(a_texCoord.x,  a_texCoord.y);
  }

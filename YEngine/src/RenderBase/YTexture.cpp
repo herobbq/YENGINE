@@ -37,19 +37,29 @@ bool YTexture::init()
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 		if (nrChannels==3)
 		{
-			glTexStorage2D(GL_TEXTURE_2D, 1 , GL_RGB8, width, height);
-			glTexSubImage2D(GL_TEXTURE_2D, 0,0,0,  width, height, GL_RGB, GL_UNSIGNED_BYTE, data);
-			//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+           #ifdef TexImage2D
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+           #else
+			glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGB8, width, height);
+			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, data);
+           #endif
+			
+			//
+			
 		}else if (nrChannels == 4)
 		{
-		//	unsigned int buf;
-			//glCreateBuffers(1, &buf);
-			//glBindBuffer(GL_PIXEL_UNPACK_BUFFER, buf);
-			//glNamedBufferStorage(buf, sizeof(data), data, 0);
-			glTextureStorage2D(m_texture, 2, GL_RGBA32F, width, height);
-			
-			glTextureSubImage2D(m_texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+          #ifdef TEXTIMAGE2D
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+         #elseif COMPRESSED
+           glTexImage2D(GL_TEXTURE_2D, 0, GL_COMPRESSED_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+		   GLint compFlag;
+		   glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_COMPRESSED, &compFlag);
+		   assert(compFlag != 0)
+        #else
+			glTextureStorage2D(m_texture, 2, GL_RGBA32F, width, height);
+			glTextureSubImage2D(m_texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        #endif
+		
 		}
 		
 		glGenerateMipmap(GL_TEXTURE_2D);
