@@ -84,14 +84,17 @@
     <ClCompile Include="src\RenderBase\GLProgram.cpp">
       <Filter>RenderBase</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderBase\YTexture.cpp">
-      <Filter>RenderBase</Filter>
-    </ClCompile>
     <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp">
       <Filter>Sample\Camera-Test</Filter>
     </ClCompile>
     <ClCompile Include="src\SourceTool\YType.cpp">
       <Filter>SourceTool</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YTextureCube.cpp">
+      <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YTexture2D.cpp">
+      <Filter>RenderBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,14 +146,17 @@
     <ClInclude Include="..\3dsparty\Imgae\stb_image.h">
       <Filter>extern</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderBase\YTexture.h">
-      <Filter>RenderBase</Filter>
-    </ClInclude>
     <ClInclude Include="src\Sample\Camera-Test\CameraTest.h">
       <Filter>Sample\Camera-Test</Filter>
     </ClInclude>
     <ClInclude Include="src\SourceTool\YType.h">
       <Filter>SourceTool</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YTextureCube.h">
+      <Filter>RenderBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YTexture2D.h">
+      <Filter>RenderBase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -5,9 +5,11 @@
 #include "YRenderer.h"
 #include "YLoadShader.h"
 #include "GLProgram.h"
-#include "YTexture.h"
+#include "YTexture2D.h"
 TextureTest::TextureTest()
 	:m_shader(nullptr)
+	, m_Texture1(nullptr)
+	, m_Texture2(nullptr)
 {
 
 }
@@ -82,8 +84,9 @@ void TextureTest::initBuffers()
 	glVertexAttribPointer(m_TextureAttributeLocation, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 	glEnableVertexAttribArray(m_TextureAttributeLocation);
 
-	m_Texture1 = YTexture::CreateText("src/Sample/Texture-Test/Texture/container.jpg");
-	m_Texture2 = YTexture::CreateText("src/Sample/Texture-Test/Texture/awesomeface.png");
+	m_Texture1 = YTexture2D::create("src/Sample/Camera-Test/Texture/container.jpg");
+	m_Texture2 = YTexture2D::create("src/Sample/Camera-Test/Texture/awesomeface.png");
+	
 
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE1, 0);
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE2, 1);
@@ -96,9 +99,9 @@ void TextureTest::onDraw(const glm::mat4* transform, uint32_t)
 	m_shader->use();
 	glBindVertexArray(m_VAO);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_Texture1);
+	glBindTexture(GL_TEXTURE_2D, m_Texture1->GetName());
 	glActiveTexture(GL_TEXTURE1);
-	glBindTexture(GL_TEXTURE_2D, m_Texture2);
+	glBindTexture(GL_TEXTURE_2D, m_Texture2->GetName());
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	

@@ -6,6 +6,7 @@
 #include "YType.h"
 
 class YShader;
+class YTexture2D;
 class TextureTest :public YNode
 {
 public:
@@ -25,8 +26,8 @@ protected:
 	unsigned int m_VBO;
 	unsigned int m_VAO;
 	unsigned int m_EBO;
-	unsigned int m_Texture1;
-	unsigned int m_Texture2;
+	YTexture2D* m_Texture1;
+	YTexture2D* m_Texture2;
 	int  m_positionAttributeLocation;
 	int  m_ColorAttributeLocation;
 	int  m_TextureAttributeLocation;

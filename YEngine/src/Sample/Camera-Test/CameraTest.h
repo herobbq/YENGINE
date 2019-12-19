@@ -10,6 +10,7 @@
 
 class YShader;
 class GLFWwindow;
+class YTexture2D;
 class CameraTest :public YNode
 {
 
@@ -34,8 +35,8 @@ protected:
 	unsigned int m_VBO;
 	unsigned int m_VAO;
 	unsigned int m_EBO;
-	unsigned int m_Texture1;
-	unsigned int m_Texture2;
+	YTexture2D* m_Texture1;
+	YTexture2D* m_Texture2;
 	float     m_deltaTime;	// time between current frame and last frame
 	float     m_lastFrame;
 	

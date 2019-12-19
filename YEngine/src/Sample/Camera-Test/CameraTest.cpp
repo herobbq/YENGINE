@@ -5,7 +5,7 @@
 #include "YLoadShader.h"
 #include "YRenderer.h"
 #include "GLProgram.h"
-#include "YTexture.h"
+#include "YTexture2D.h"
 #include "YType.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -17,6 +17,8 @@ CameraTest::CameraTest()
 	:m_shader(nullptr)
 	, m_deltaTime(0.0f)
 	, m_lastFrame(0.0f)
+	, m_Texture1(nullptr)
+	, m_Texture2(nullptr)
 	/*, m_flastY(0.0f)
 	, m_flastX(0.0f)
 	,m_bfirstMouse(true)*/
@@ -121,8 +123,9 @@ void CameraTest::initBuffers()
 	glVertexAttribPointer(m_TextureAttributeLocation, 2 , GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(m_TextureAttributeLocation);
 
-	m_Texture1 = YTexture::CreateText("src/Sample/Camera-Test/Texture/container.jpg");
-	m_Texture2 = YTexture::CreateText("src/Sample/Camera-Test/Texture/awesomeface.png");
+
+	m_Texture1 = YTexture2D::create("src/Sample/Camera-Test/Texture/container.jpg");
+	m_Texture2 = YTexture2D::create("src/Sample/Camera-Test/Texture/awesomeface.png");
 
 	glUniform1i(glGetUniformLocation(m_shader->GetProgram(), GLProgram::UNIFORM_NAME_TEXTURE1),0);
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE2, 1);
@@ -157,9 +160,9 @@ void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 		glBindTextureUnit(1, m_Texture2);
 	#else
 		glActiveTexture(GL_TEXTURE0);
-	    glBindTexture(GL_TEXTURE_2D, m_Texture1);
+	    glBindTexture(GL_TEXTURE_2D, m_Texture1->GetName());
 	    glActiveTexture(GL_TEXTURE1);
-	    glBindTexture(GL_TEXTURE_2D, m_Texture2);
+	    glBindTexture(GL_TEXTURE_2D, m_Texture2->GetName());
     #endif // DEBUG
 
 	// pass transformation matrices to the shader

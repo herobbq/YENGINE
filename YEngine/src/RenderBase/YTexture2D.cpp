@@ -1,33 +1,39 @@
 #define GLEW_STATIC
 #include "glew.h"
-#include "YTexture.h"
+#include "YTexture2D.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-YTexture::YTexture(const char* _path)
-	:m_strPath(_path)
+
+
+YTexture2D::YTexture2D()
 {
 
 }
 
-YTexture::~YTexture()
+YTexture2D::~YTexture2D()
 {
 
 }
 
-unsigned int YTexture::CreateText(const char* _path)
+YTexture2D* YTexture2D::create(const std::string& strFilePath)
 {
-	YTexture _text(_path);
-	if (_text.init())
+	YTexture2D* _text = new YTexture2D;
+	if (_text->init(strFilePath))
 	{
-		return _text.m_texture;
+		return _text;
 	}
-	return -1;
+	delete _text;
+	_text = nullptr;
+	return NULL;
 }
 
 
-bool YTexture::init()
+
+
+bool YTexture2D::init(const std::string& strFilePath)
 {
+	m_strPath = strFilePath;
 	int width, height, nrChannels;
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char *data = stbi_load(m_strPath.c_str(), &width, &height, &nrChannels, 0);
@@ -76,4 +82,8 @@ bool YTexture::init()
 	stbi_image_free(data);
 	return true;
 }
+
+
+
+
 
