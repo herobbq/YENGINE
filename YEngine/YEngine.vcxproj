@@ -73,7 +73,7 @@
     <LibraryPath>../3dsparty/glew/lib;../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\3dsparty\glew\lib;..\3dsparty\GLFW\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\</OutDir>
   </PropertyGroup>

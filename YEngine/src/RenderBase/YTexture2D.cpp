@@ -18,7 +18,7 @@ YTexture2D::~YTexture2D()
 
 YTexture2D* YTexture2D::create(const std::string& strFilePath)
 {
-	YTexture2D* _text = new YTexture2D;
+	YTexture2D* _text = new (std::nothrow)YTexture2D;
 	if (_text->init(strFilePath))
 	{
 		return _text;
