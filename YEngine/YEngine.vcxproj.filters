@@ -34,6 +34,9 @@
     <Filter Include="Sample\Camera-Test">
       <UniqueIdentifier>{0fb99bdc-31a9-4133-a06a-0a059cc4f452}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\Skybox-Test">
+      <UniqueIdentifier>{3a931418-54ce-40a8-a799-5a84551e09fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="src\RenderBase\YTexture2D.cpp">
       <Filter>RenderBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp">
+      <Filter>Sample\Skybox-Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +164,12 @@
     <ClInclude Include="src\RenderBase\YTexture2D.h">
       <Filter>RenderBase</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sample\Skybox-Test\SkyboxTest.h">
+      <Filter>Sample\Skybox-Test</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\Triangle.fs">
@@ -178,5 +190,16 @@
     <None Include="src\Shader\CameraTest.vs">
       <Filter>Shader</Filter>
     </None>
+    <None Include="src\Shader\Skybox.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\Skybox.vs">
+      <Filter>Shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="YEngine.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

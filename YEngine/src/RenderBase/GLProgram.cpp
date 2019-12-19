@@ -10,6 +10,8 @@ const char* GLProgram::UNIFORM_NAME_TEXTURE1 = "u_texture1";
 
 const char* GLProgram::UNIFORM_NAME_TEXTURE2 = "u_texture2";
 
+const char* GLProgram::UNIFORM_NAME_CUBETEXTURE = "u_cubetexture";
+
 // Attribute names
 const char* GLProgram::ATTRIBUTE_NAME_COLOR = "a_color";
 const char* GLProgram::ATTRIBUTE_NAME_POSITION = "a_position";

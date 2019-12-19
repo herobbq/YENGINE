@@ -8,6 +8,7 @@ public:
 	static const char* UNIFORM_NAME_PROJECTION;
 	static const char* UNIFORM_NAME_TEXTURE1;
 	static const char* UNIFORM_NAME_TEXTURE2;
+	static const char* UNIFORM_NAME_CUBETEXTURE;
 public:
 	static const char* ATTRIBUTE_NAME_COLOR;
 	/**Attribute position.*/

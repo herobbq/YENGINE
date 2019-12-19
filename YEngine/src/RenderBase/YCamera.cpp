@@ -20,7 +20,7 @@ YCamera::~YCamera()
 bool YCamera::initDefault()
 {
 	YSize windowSize = YDirector::GetInstance()->getWinsize();
-	m_vPostion = glm::vec3(0.0f,0.0,3.0f);
+	m_vPostion = glm::vec3(0.0f,0.0,0.0f);
 	m_vUp = glm::vec3(0.0f, 1.0f, 0.0f);
 	m_vFront = glm::vec3(0.0f, 0.0f, -1.0f);
 	m_vRight = glm::normalize(glm::cross(m_vFront, m_vUp));

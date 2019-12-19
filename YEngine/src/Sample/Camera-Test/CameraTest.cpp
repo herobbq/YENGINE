@@ -7,8 +7,6 @@
 #include "GLProgram.h"
 #include "YTexture2D.h"
 #include "YType.h"
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include "YDirector.h"
 #include "GLView.h"
 #include "YCamera.h"
@@ -167,7 +165,7 @@ void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 
 	// pass transformation matrices to the shader
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix()); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, YCamera::m_visitingCamera->getViewMatrix());
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW,glm::translate(YCamera::m_visitingCamera->getViewMatrix(),glm::vec3(0.0,0.0,-3.0)) );
 
 	// render boxes
 	glBindVertexArray(m_VAO);

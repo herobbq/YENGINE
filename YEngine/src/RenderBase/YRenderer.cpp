@@ -29,10 +29,10 @@ void YRenderer::clean()
 
 void YRenderer::clear()
 {
-	glDepthMask(true);
+	//glDepthMask(true);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glDepthMask(false);
+	//glDepthMask(false);
 }
 
 void YRenderer::processRenderCommand(YRenderCommand* command)
@@ -65,8 +65,9 @@ void YRenderer::render()
 	for (auto &renderqueue : m_renderGroups)
 	{
 		//renderqueue.sort();
+		visitRenderQueue(renderqueue);
 	}
-	visitRenderQueue(m_renderGroups[0]);
+	//visitRenderQueue(m_renderGroups[0]);
 }
 
 RenderQueue::RenderQueue()

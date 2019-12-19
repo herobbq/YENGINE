@@ -3,9 +3,10 @@
 #include "YDirector.h"
 #include "GLView.h"
 #include "GLViewImpl.h"
-// #include "TriangleTest.h"
+#include "TriangleTest.h"
 #include "YScene.h"
-//#include "TextureTest.h"
+#include "TextureTest.h"
+#include "SkyboxTest.h"
 
 Application::Application()
 {
@@ -27,8 +28,10 @@ int Application::run()
 		director->setOpenGLView(_glview);
 	}
 	YScene* s = YScene::create();
-	auto test = CameraTest::create();
+	auto test = SkyBoxTest::create();
+	auto test1 = CameraTest::create();
 	s->addChild(test, 1);
+	//s->addChild(test1, 1);
 	director->replaceScene(s);
 	
 	while (!_glview->windowShouldClose())

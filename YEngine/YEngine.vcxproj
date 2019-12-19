@@ -139,6 +139,7 @@
     <ClCompile Include="src\RenderBase\YTexture2D.cpp" />
     <ClCompile Include="src\RenderBase\YTextureCube.cpp" />
     <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp" />
+    <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp" />
     <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp" />
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp" />
     <ClCompile Include="src\SourceTool\Application.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\3dsparty\Imgae\stb_image.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\RenderBase\GLProgram.h" />
     <ClInclude Include="src\RenderBase\GLView.h" />
     <ClInclude Include="src\RenderBase\GLViewImpl.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="src\RenderBase\YTexture2D.h" />
     <ClInclude Include="src\RenderBase\YTextureCube.h" />
     <ClInclude Include="src\Sample\Camera-Test\CameraTest.h" />
+    <ClInclude Include="src\Sample\Skybox-Test\SkyboxTest.h" />
     <ClInclude Include="src\Sample\Texture-Test\TextureTest.h" />
     <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h" />
     <ClInclude Include="src\SourceTool\Application.h" />
@@ -170,10 +173,15 @@
   <ItemGroup>
     <None Include="src\Shader\CameraTest.fs" />
     <None Include="src\Shader\CameraTest.vs" />
+    <None Include="src\Shader\Skybox.fs" />
+    <None Include="src\Shader\Skybox.vs" />
     <None Include="src\Shader\Texture.fs" />
     <None Include="src\Shader\Texture.vs" />
     <None Include="src\Shader\Triangle.fs" />
     <None Include="src\Shader\Triangle.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="YEngine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
