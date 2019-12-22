@@ -37,6 +37,9 @@
     <Filter Include="Sample\Skybox-Test">
       <UniqueIdentifier>{3a931418-54ce-40a8-a799-5a84551e09fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\FrameBuffer-Test">
+      <UniqueIdentifier>{a452126c-085a-48d6-90d4-e7881524cb52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -101,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp">
       <Filter>Sample\Skybox-Test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.cpp">
+      <Filter>Sample\FrameBuffer-Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +176,12 @@
     <ClInclude Include="resource.h">
       <Filter>SourceTool</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.h">
+      <Filter>Sample\FrameBuffer-Test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\SampleInclude.h">
+      <Filter>extern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\Triangle.fs">
@@ -196,10 +208,11 @@
     <None Include="src\Shader\Skybox.vs">
       <Filter>Shader</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="YEngine.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
+    <None Include="src\Shader\FrameBufferScreen.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\FrameBufferScreen.vs">
+      <Filter>Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>

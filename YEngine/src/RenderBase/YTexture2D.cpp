@@ -79,6 +79,7 @@ bool YTexture2D::init(const std::string& strFilePath)
 	// set texture filtering parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
 	stbi_image_free(data);
 	return true;
 }

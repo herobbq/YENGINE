@@ -73,7 +73,7 @@
     <LibraryPath>../3dsparty/glew/lib;../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
     <LibraryPath>..\3dsparty\glew\lib;..\3dsparty\GLFW\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\</OutDir>
   </PropertyGroup>
@@ -139,6 +139,7 @@
     <ClCompile Include="src\RenderBase\YTexture2D.cpp" />
     <ClCompile Include="src\RenderBase\YTextureCube.cpp" />
     <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp" />
+    <ClCompile Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.cpp" />
     <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp" />
     <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp" />
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp" />
@@ -163,6 +164,8 @@
     <ClInclude Include="src\RenderBase\YTexture2D.h" />
     <ClInclude Include="src\RenderBase\YTextureCube.h" />
     <ClInclude Include="src\Sample\Camera-Test\CameraTest.h" />
+    <ClInclude Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.h" />
+    <ClInclude Include="src\Sample\SampleInclude.h" />
     <ClInclude Include="src\Sample\Skybox-Test\SkyboxTest.h" />
     <ClInclude Include="src\Sample\Texture-Test\TextureTest.h" />
     <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h" />
@@ -173,15 +176,14 @@
   <ItemGroup>
     <None Include="src\Shader\CameraTest.fs" />
     <None Include="src\Shader\CameraTest.vs" />
+    <None Include="src\Shader\FrameBufferScreen.fs" />
+    <None Include="src\Shader\FrameBufferScreen.vs" />
     <None Include="src\Shader\Skybox.fs" />
     <None Include="src\Shader\Skybox.vs" />
     <None Include="src\Shader\Texture.fs" />
     <None Include="src\Shader\Texture.vs" />
     <None Include="src\Shader\Triangle.fs" />
     <None Include="src\Shader\Triangle.vs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="YEngine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

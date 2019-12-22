@@ -1,12 +1,11 @@
-#include "CameraTest.h"
+#include "SampleInclude.h"
 #include "Application.h"
 #include "YDirector.h"
 #include "GLView.h"
 #include "GLViewImpl.h"
-#include "TriangleTest.h"
+
 #include "YScene.h"
-#include "TextureTest.h"
-#include "SkyboxTest.h"
+
 
 Application::Application()
 {
@@ -28,10 +27,12 @@ int Application::run()
 		director->setOpenGLView(_glview);
 	}
 	YScene* s = YScene::create();
-	auto test = SkyBoxTest::create();
-	auto test1 = CameraTest::create();
-	s->addChild(test, 1);
+	//auto test = SkyBoxTest::create();
+//	auto test1 = CameraTest::create();
+   auto test2 = FrameBufferTest::create();
+	//s->addChild(test, 1);
 	//s->addChild(test1, 1);
+	s->addChild(test2, 1);
 	director->replaceScene(s);
 	
 	while (!_glview->windowShouldClose())
