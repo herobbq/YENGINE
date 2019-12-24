@@ -40,6 +40,21 @@
     <Filter Include="Sample\FrameBuffer-Test">
       <UniqueIdentifier>{a452126c-085a-48d6-90d4-e7881524cb52}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\Light-Test">
+      <UniqueIdentifier>{f6db7ff5-151d-4afe-8301-0ce8ead0ad8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderBase\Light">
+      <UniqueIdentifier>{6359ff70-f94f-40d3-b8a4-572424238ea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderBase\Camera">
+      <UniqueIdentifier>{a745d61c-f3a6-492b-b459-49b3b5ee2349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderBase\Texture">
+      <UniqueIdentifier>{c9d7f87e-5360-41ec-b50e-03b0fdf533fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderBase\Scene">
+      <UniqueIdentifier>{c6675373-5670-48f9-abdd-309efd668cb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -51,22 +66,13 @@
     <ClCompile Include="src\RenderBase\Ref.cpp">
       <Filter>RenderBase</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderBase\YNode.cpp">
-      <Filter>RenderBase</Filter>
-    </ClCompile>
     <ClCompile Include="src\RenderBase\YDirector.cpp">
-      <Filter>RenderBase</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RenderBase\YScene.cpp">
       <Filter>RenderBase</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderBase\YRenderCommand.cpp">
       <Filter>RenderBase</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderBase\YCustomCommand.cpp">
-      <Filter>RenderBase</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RenderBase\YCamera.cpp">
       <Filter>RenderBase</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderBase\YRenderer.cpp">
@@ -96,17 +102,29 @@
     <ClCompile Include="src\SourceTool\YType.cpp">
       <Filter>SourceTool</Filter>
     </ClCompile>
-    <ClCompile Include="src\RenderBase\YTextureCube.cpp">
-      <Filter>RenderBase</Filter>
-    </ClCompile>
-    <ClCompile Include="src\RenderBase\YTexture2D.cpp">
-      <Filter>RenderBase</Filter>
-    </ClCompile>
     <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp">
       <Filter>Sample\Skybox-Test</Filter>
     </ClCompile>
     <ClCompile Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.cpp">
       <Filter>Sample\FrameBuffer-Test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\Light-Test\LightTest.cpp">
+      <Filter>Sample\Light-Test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YCamera.cpp">
+      <Filter>RenderBase\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YTexture2D.cpp">
+      <Filter>RenderBase\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YTextureCube.cpp">
+      <Filter>RenderBase\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YNode.cpp">
+      <Filter>RenderBase\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YScene.cpp">
+      <Filter>RenderBase\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,13 +134,7 @@
     <ClInclude Include="src\SourceTool\YLoadShader.h">
       <Filter>SourceTool</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderBase\YNode.h">
-      <Filter>RenderBase</Filter>
-    </ClInclude>
     <ClInclude Include="src\RenderBase\YDirector.h">
-      <Filter>RenderBase</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderBase\YScene.h">
       <Filter>RenderBase</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderBase\YRenderer.h">
@@ -132,9 +144,6 @@
       <Filter>RenderBase</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderBase\YCustomCommand.h">
-      <Filter>RenderBase</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderBase\YCamera.h">
       <Filter>RenderBase</Filter>
     </ClInclude>
     <ClInclude Include="src\RenderBase\GLView.h">
@@ -164,12 +173,6 @@
     <ClInclude Include="src\SourceTool\YType.h">
       <Filter>SourceTool</Filter>
     </ClInclude>
-    <ClInclude Include="src\RenderBase\YTextureCube.h">
-      <Filter>RenderBase</Filter>
-    </ClInclude>
-    <ClInclude Include="src\RenderBase\YTexture2D.h">
-      <Filter>RenderBase</Filter>
-    </ClInclude>
     <ClInclude Include="src\Sample\Skybox-Test\SkyboxTest.h">
       <Filter>Sample\Skybox-Test</Filter>
     </ClInclude>
@@ -181,6 +184,27 @@
     </ClInclude>
     <ClInclude Include="src\Sample\SampleInclude.h">
       <Filter>extern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\Light-Test\LightTest.h">
+      <Filter>Sample\Light-Test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SourceTool\PlatformMacros.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YCamera.h">
+      <Filter>RenderBase\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YTextureCube.h">
+      <Filter>RenderBase\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YTexture2D.h">
+      <Filter>RenderBase\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YNode.h">
+      <Filter>RenderBase\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RenderBase\YScene.h">
+      <Filter>RenderBase\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +236,12 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="src\Shader\FrameBufferScreen.vs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\LightTest.fs">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\LightTest.vs">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

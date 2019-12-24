@@ -140,6 +140,7 @@
     <ClCompile Include="src\RenderBase\YTextureCube.cpp" />
     <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp" />
     <ClCompile Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.cpp" />
+    <ClCompile Include="src\Sample\Light-Test\LightTest.cpp" />
     <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp" />
     <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp" />
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp" />
@@ -165,11 +166,13 @@
     <ClInclude Include="src\RenderBase\YTextureCube.h" />
     <ClInclude Include="src\Sample\Camera-Test\CameraTest.h" />
     <ClInclude Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.h" />
+    <ClInclude Include="src\Sample\Light-Test\LightTest.h" />
     <ClInclude Include="src\Sample\SampleInclude.h" />
     <ClInclude Include="src\Sample\Skybox-Test\SkyboxTest.h" />
     <ClInclude Include="src\Sample\Texture-Test\TextureTest.h" />
     <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h" />
     <ClInclude Include="src\SourceTool\Application.h" />
+    <ClInclude Include="src\SourceTool\PlatformMacros.h" />
     <ClInclude Include="src\SourceTool\YLoadShader.h" />
     <ClInclude Include="src\SourceTool\YType.h" />
   </ItemGroup>
@@ -178,6 +181,8 @@
     <None Include="src\Shader\CameraTest.vs" />
     <None Include="src\Shader\FrameBufferScreen.fs" />
     <None Include="src\Shader\FrameBufferScreen.vs" />
+    <None Include="src\Shader\LightTest.fs" />
+    <None Include="src\Shader\LightTest.vs" />
     <None Include="src\Shader\Skybox.fs" />
     <None Include="src\Shader\Skybox.vs" />
     <None Include="src\Shader\Texture.fs" />

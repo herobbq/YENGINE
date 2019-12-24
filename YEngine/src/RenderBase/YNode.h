@@ -4,6 +4,7 @@
 #include <string>
 #include "YType.h"
 #include <vector>
+#include "PlatformMacros.h"
 class YRenderer;
 class YNode :public Ref
 {
