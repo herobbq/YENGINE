@@ -208,40 +208,46 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Shader\Triangle.fs">
+    <None Include="src\Shader\CameraTest.frag">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\Triangle.vs">
+    <None Include="src\Shader\CameraTest.vert">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\Texture.fs">
+    <None Include="src\Shader\FrameBufferScreen.frag">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\Texture.vs">
+    <None Include="src\Shader\FrameBufferScreen.vert">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\CameraTest.fs">
+    <None Include="src\Shader\LightTest.frag">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\CameraTest.vs">
+    <None Include="src\Shader\LightTest.vert">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\Skybox.fs">
+    <None Include="src\Shader\Skybox.frag">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\Skybox.vs">
+    <None Include="src\Shader\Skybox.vert">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\FrameBufferScreen.fs">
+    <None Include="src\Shader\Texture.frag">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\FrameBufferScreen.vs">
+    <None Include="src\Shader\Texture.vert">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\LightTest.fs">
+    <None Include="src\Shader\Triangle.frag">
       <Filter>Shader</Filter>
     </None>
-    <None Include="src\Shader\LightTest.vs">
+    <None Include="src\Shader\Triangle.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\NormalBox.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\NormalBox.vert">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

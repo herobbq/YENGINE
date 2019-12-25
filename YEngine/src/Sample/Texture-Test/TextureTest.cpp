@@ -42,7 +42,7 @@ void TextureTest::draw(YRenderer* renderer, const glm::mat4& transform, uint32_t
 
 bool TextureTest::init()
 {
-	m_shader = new YShader("./src/Shader/Texture.vs", "./src/Shader/Texture.fs");
+	m_shader = new YShader("./src/Shader/Texture.vert", "./src/Shader/Texture.frag");
 	initBuffers();
 	return true;
 }

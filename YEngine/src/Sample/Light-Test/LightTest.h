@@ -28,9 +28,11 @@ protected:
 
 protected:
 	YCustomCommand m_customCommand;
-	YShader*    m_shader;
+	YShader*    m_Boxshader;
+	YShader*    m_Lightshader;
 	unsigned int m_VBO;
 	unsigned int m_VAO;
+	unsigned int m_LightVAO;
 	YTexture2D* m_Texture1;
 	float     m_deltaTime;	// time between current frame and last frame
 	float     m_lastFrame;

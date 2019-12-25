@@ -47,7 +47,7 @@ bool SkyBoxTest::init()
 {
 	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
 	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
-	m_shader = new YShader("./src/Shader/Skybox.vs", "./src/Shader/Skybox.fs");
+	m_shader = new YShader("./src/Shader/Skybox.vert", "./src/Shader/Skybox.frag");
 	initBuffers();
 	return true;
 }

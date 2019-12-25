@@ -177,18 +177,20 @@
     <ClInclude Include="src\SourceTool\YType.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\Shader\CameraTest.fs" />
-    <None Include="src\Shader\CameraTest.vs" />
-    <None Include="src\Shader\FrameBufferScreen.fs" />
-    <None Include="src\Shader\FrameBufferScreen.vs" />
-    <None Include="src\Shader\LightTest.fs" />
-    <None Include="src\Shader\LightTest.vs" />
-    <None Include="src\Shader\Skybox.fs" />
-    <None Include="src\Shader\Skybox.vs" />
-    <None Include="src\Shader\Texture.fs" />
-    <None Include="src\Shader\Texture.vs" />
-    <None Include="src\Shader\Triangle.fs" />
-    <None Include="src\Shader\Triangle.vs" />
+    <None Include="src\Shader\CameraTest.frag" />
+    <None Include="src\Shader\CameraTest.vert" />
+    <None Include="src\Shader\FrameBufferScreen.frag" />
+    <None Include="src\Shader\FrameBufferScreen.vert" />
+    <None Include="src\Shader\LightTest.frag" />
+    <None Include="src\Shader\LightTest.vert" />
+    <None Include="src\Shader\NormalBox.frag" />
+    <None Include="src\Shader\NormalBox.vert" />
+    <None Include="src\Shader\Skybox.frag" />
+    <None Include="src\Shader\Skybox.vert" />
+    <None Include="src\Shader\Texture.frag" />
+    <None Include="src\Shader\Texture.vert" />
+    <None Include="src\Shader\Triangle.frag" />
+    <None Include="src\Shader\Triangle.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,6 +9,7 @@ public:
 	static const char* UNIFORM_NAME_TEXTURE1;
 	static const char* UNIFORM_NAME_TEXTURE2;
 	static const char* UNIFORM_NAME_CUBETEXTURE;
+	static const char* UNIFORM_NAME_VIEWPOS;
 public:
 	static const char* ATTRIBUTE_NAME_COLOR;
 	/**Attribute position.*/
@@ -29,5 +30,8 @@ public:
 	static const char* ATTRIBUTE_NAME_TANGENT;
 	/**Attribute blend binormal.*/
 	static const char* ATTRIBUTE_NAME_BINORMAL;
+
+	
+	
 };
 #endif // 

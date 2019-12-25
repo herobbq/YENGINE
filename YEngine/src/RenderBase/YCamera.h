@@ -35,6 +35,7 @@ public:
 	static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 	static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 	static void   processInput(GLFWwindow *window,float deltaTime);
+	glm::vec3&  getCameraPos() { return m_vPostion; }
 public:
 	static YCamera* m_visitingCamera;
 protected:

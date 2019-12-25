@@ -58,7 +58,7 @@ bool CameraTest::init()
 	
 	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
 	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
-	m_shader = new YShader("./src/Shader/CameraTest.vs", "./src/Shader/CameraTest.fs");
+	m_shader = new YShader("./src/Shader/CameraTest.vert", "./src/Shader/CameraTest.frag");
 	initBuffers();
 	return true;
 }

@@ -41,7 +41,7 @@ void TriangleTest::draw(YRenderer* renderer, const glm::mat4& transform, uint32_
 
 bool TriangleTest::init()
 {
-	m_shader = new YShader("./src/Shader/Triangle.vs","./src/Shader/Triangle.fs");
+	m_shader = new YShader("./src/Shader/Triangle.vert","./src/Shader/Triangle.frag");
 	initBuffers();
 	return true;
 }
