@@ -31,10 +31,12 @@ int Application::run()
 //	auto test1 = CameraTest::create();
   // auto test2 = FrameBufferTest::create();
    //auto test3 = LightTest::create();
-	s->addChild(test, 1);
+	auto test4 = TriangleTest::create();
+	//s->addChild(test, 1);
 	//s->addChild(test1, 1);
 	//s->addChild(test2, 1);
 	//s->addChild(test3, 1);
+	s->addChild(test4, 1);
 	director->replaceScene(s);
 	
 	while (!_glview->windowShouldClose())

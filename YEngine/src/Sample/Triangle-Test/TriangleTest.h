@@ -24,6 +24,9 @@ protected:
 	YShader*    m_shader;
 	unsigned int m_VBO;
 	unsigned int m_VAO;
+	glm::vec3 topColor;
+	glm::vec3 bottomLeftColor;
+	glm::vec3 bottomRightColor;
 };
 
 

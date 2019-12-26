@@ -73,7 +73,7 @@
     <LibraryPath>../3dsparty/glew/lib;../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\Triangle-Test;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;..\3dsparty\imgui;$(IncludePath)</IncludePath>
     <LibraryPath>..\3dsparty\glew\lib;..\3dsparty\GLFW\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\</OutDir>
   </PropertyGroup>
@@ -124,6 +124,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\3dsparty\imgui\imgui.cpp" />
+    <ClCompile Include="..\3dsparty\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\3dsparty\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\3dsparty\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\3dsparty\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\3dsparty\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\RenderBase\GLProgram.cpp" />
     <ClCompile Include="src\RenderBase\GLView.cpp" />
@@ -150,6 +156,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\3dsparty\Imgae\stb_image.h" />
+    <ClInclude Include="..\3dsparty\imgui\imconfig.h" />
+    <ClInclude Include="..\3dsparty\imgui\imgui.h" />
+    <ClInclude Include="..\3dsparty\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\3dsparty\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\3dsparty\imgui\imgui_internal.h" />
+    <ClInclude Include="..\3dsparty\imgui\imgui_user.h" />
+    <ClInclude Include="..\3dsparty\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\3dsparty\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\3dsparty\imgui\imstb_truetype.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="src\RenderBase\GLProgram.h" />
     <ClInclude Include="src\RenderBase\GLView.h" />
@@ -177,6 +192,9 @@
     <ClInclude Include="src\SourceTool\YType.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\3dsparty\imgui\.editorconfig" />
+    <None Include="..\3dsparty\imgui\.gitattributes" />
+    <None Include="..\3dsparty\imgui\imgui_user.inl" />
     <None Include="src\Shader\CameraTest.frag" />
     <None Include="src\Shader\CameraTest.vert" />
     <None Include="src\Shader\FrameBufferScreen.frag" />
@@ -191,6 +209,9 @@
     <None Include="src\Shader\Texture.vert" />
     <None Include="src\Shader\Triangle.frag" />
     <None Include="src\Shader\Triangle.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\3dsparty\imgui\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

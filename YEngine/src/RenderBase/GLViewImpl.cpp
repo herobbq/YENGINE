@@ -1,9 +1,18 @@
 #include "GLViewImpl.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+
+
 #define GLEW_STATIC
 #include "glew.h"
 #include <glfw3.h>
 #include <iostream>
 #include "YCamera.h"
+
+#if defined(_MSC_VER) && (_MSC_VER >= 1900) && !defined(IMGUI_DISABLE_WIN32_FUNCTIONS)
+#pragma comment(lib, "legacy_stdio_definitions")
+#endif
 GLViewImpl* GLFWEventHandler::_view = nullptr;
 GLViewImpl* GLViewImpl::create(const std::string& viewName)
 {
@@ -79,6 +88,22 @@ bool GLViewImpl::initWithRect(const std::string& viewName, int width , int heigh
 	glfwSetWindowSizeCallback(m_window, GLFWEventHandler::onGLFWWindowSizeFunCallback);
 	glfwSetWindowIconifyCallback(m_window, GLFWEventHandler::onGLFWWindowIconifyCallback);
 	glfwSetWindowFocusCallback(m_window, GLFWEventHandler::onGLFWWindowFocusCallback);
+
+	//imgui
+	const char* glsl_version = "#version 330 core";
+	IMGUI_CHECKVERSION();
+	ImGui::CreateContext();
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+	// Setup Dear ImGui style
+	ImGui::StyleColorsDark();
+	//ImGui::StyleColorsClassic();
+
+	// Setup Platform/Renderer bindings
+	ImGui_ImplGlfw_InitForOpenGL(m_window, true);
+	ImGui_ImplOpenGL3_Init(glsl_version);
 	if (glewInit()!=GLEW_OK)
 	{
 		std::cout << "Failed to initialize GLAD" << std::endl;
