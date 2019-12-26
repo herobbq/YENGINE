@@ -132,6 +132,8 @@ void SkyBoxTest::onDraw(const glm::mat4* transform, uint32_t)
 	//glUniformMatrix4fv(glGetUniformLocation(m_shader->GetProgram(), GLProgram::UNIFORM_NAME_VIEW),1,GL_FALSE,&YCamera::m_visitingCamera->getViewMatrix()[0][0]);
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix());
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, YCamera::m_visitingCamera->getViewMatrix());
+	glm::mat4 model(1);
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_MODEL, glm::scale(model, glm::vec3(10.0)));
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glDepthFunc(GL_LESS);
 }
