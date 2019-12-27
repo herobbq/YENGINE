@@ -40,8 +40,7 @@ protected:
 	unsigned int m_quardVAO;
 	YTexture2D* m_Texture1;
 	YTexture2D* m_Texture2;
-	float     m_deltaTime;	// time between current frame and last frame
-	float     m_lastFrame;
+	
 
 	int  m_positionAttributeLocation;
 	int  m_ColorAttributeLocation;

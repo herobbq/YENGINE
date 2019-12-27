@@ -13,8 +13,6 @@
 
 CameraTest::CameraTest()
 	:m_shader(nullptr)
-	, m_deltaTime(0.0f)
-	, m_lastFrame(0.0f)
 	, m_Texture1(nullptr)
 	, m_Texture2(nullptr)
 	/*, m_flastY(0.0f)
@@ -128,18 +126,15 @@ void CameraTest::initBuffers()
 	glUniform1i(glGetUniformLocation(m_shader->GetProgram(), GLProgram::UNIFORM_NAME_TEXTURE1),0);
 	m_shader->SetInt(GLProgram::UNIFORM_NAME_TEXTURE2, 1);
 	glBindVertexArray(0);
-
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 
 }
 
 void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 {
-	glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	float curTime = glfwGetTime();
-	m_deltaTime = curTime - m_lastFrame;
-	m_lastFrame = curTime;
-	YCamera::processInput(YDirector::GetInstance()->getGLwindow(),m_deltaTime);
+	//glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	
 	glm::vec3 cubePositions[] = {
 		glm::vec3(0.0f,  0.0f,  0.0f),
 		glm::vec3(2.0f,  5.0f, -15.0f),

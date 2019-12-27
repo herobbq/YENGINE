@@ -22,7 +22,7 @@ void YRenderer::clean()
 {
 	for (int i =0;i<m_renderGroups.size();++i)
 	{
-		delete &m_renderGroups[i];
+		//delete &m_renderGroups[i];
 	}
 	m_renderGroups.clear();
 }

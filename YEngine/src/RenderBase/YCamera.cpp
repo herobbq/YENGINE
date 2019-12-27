@@ -6,7 +6,12 @@
 YCamera* YCamera::m_visitingCamera = nullptr;
 float YCamera::m_flastX = 0.0f;
 float YCamera::m_flastY = 0.0f;
-bool YCamera::m_bfirstMouse = true;
+bool YCamera::m_bfirstMouse = false;
+
+
+
+bool YCamera::bClicked = false;
+
 YCamera::YCamera()
 {
 
@@ -84,6 +89,10 @@ void YCamera::lookAt(glm::vec3 pos, glm::vec3 up)
 
 void YCamera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
 {
+	if (!bClicked)
+	{
+		return;
+	}
 	float velocity = m_fMovementSpeed * deltaTime;
 	if (direction == FORWARD)
 		m_vPostion += m_vFront * velocity;
@@ -133,18 +142,21 @@ void YCamera::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 		m_flastX = xpos;
 		m_flastY = ypos;
 		m_bfirstMouse = false;
+
 	}
-
-	float xoffset = xpos - m_flastX;
-	float yoffset = m_flastY - ypos; // reversed since y-coordinates go from bottom to top
-
-	m_flastX = xpos;
-	m_flastY = ypos;
-	if (m_visitingCamera)
+	if (bClicked)
 	{
-		m_visitingCamera->ProcessMouseMovement(xoffset, yoffset);
-	}
 
+		float xoffset = xpos - m_flastX;
+		float yoffset = m_flastY - ypos; // reversed since y-coordinates go from bottom to top
+
+		m_flastX = xpos;
+		m_flastY = ypos;
+		if (m_visitingCamera)
+		{
+			m_visitingCamera->ProcessMouseMovement(xoffset, yoffset);
+		}
+	}
 }
 
 void YCamera::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
@@ -177,5 +189,21 @@ void YCamera::processInput(GLFWwindow *window, float deltaTime)
 			_camera->ProcessKeyboard(YCamera::DOWN, deltaTime);
 		if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
 			_camera->ProcessKeyboard(YCamera::UP, deltaTime);
+		if (glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_RIGHT)==GLFW_PRESS)
+		{
+			glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+			if (!bClicked)
+			{
+				m_bfirstMouse = true;
+			}
+			
+			bClicked = true;
+		}
+		else
+		{
+			glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			m_bfirstMouse = false;
+			bClicked = false;
+		}
 	}
 }

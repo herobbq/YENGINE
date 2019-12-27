@@ -54,6 +54,7 @@ protected:
 	// Camera options
 	float m_fMouseSensitivity;
 	float m_fZoom;
+	static bool bClicked;
 		
 };
 

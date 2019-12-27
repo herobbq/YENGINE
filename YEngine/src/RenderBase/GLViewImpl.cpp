@@ -62,6 +62,9 @@ GLViewImpl::~GLViewImpl()
 {
 	GLFWEventHandler::setGLViewImpl(nullptr);
 	glfwTerminate();
+	ImGui_ImplOpenGL3_Shutdown();
+	ImGui_ImplGlfw_Shutdown();
+	ImGui::DestroyContext();
 }
 
 bool GLViewImpl::initWithRect(const std::string& viewName, int width , int height , float frameZoomFactor, bool resizable)
@@ -122,7 +125,8 @@ void GLViewImpl::swapBuffers()
 {
 	if (m_window)
 	{
-		
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 		glfwSwapBuffers(m_window);
 		
 	}

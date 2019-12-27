@@ -36,8 +36,7 @@ protected:
 	unsigned int m_VAO;
 	unsigned int m_EBO;
 	YTextureCube* m_Texture1;
-	float     m_deltaTime;	// time between current frame and last frame
-	float     m_lastFrame;
+	
 
 	int  m_positionAttributeLocation;
 	int  m_ColorAttributeLocation;

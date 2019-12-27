@@ -17,6 +17,7 @@ public:
 	virtual void addChild(YNode* child, int localZOrder, int tag);
 	
 	virtual void addChild(YNode* child, int localZOrder, const std::string &name);
+	virtual void removeChild(YNode* child);
 	virtual void draw(YRenderer *renderer, const glm::mat4& transform, uint32_t flags);
 	virtual void visit(YRenderer *renderer, const glm::mat4& parentTransform, uint32_t parentFlags);
 	virtual YNode* getParent() { return m_pParent; }

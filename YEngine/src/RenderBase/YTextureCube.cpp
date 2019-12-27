@@ -37,7 +37,7 @@ bool YTextureCube::init(const std::string& positive_x, const std::string& negati
 
 	glGenTextures(1, &m_texture);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, m_texture);
-
+	stbi_set_flip_vertically_on_load(false);
 	int width, height, nrChannels;
 	for (int i = 0;i<m_vFilepath.size();++i)
 	{

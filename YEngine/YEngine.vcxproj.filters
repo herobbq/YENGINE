@@ -58,6 +58,9 @@
     <Filter Include="imgui">
       <UniqueIdentifier>{e26da655-8436-45a1-84a9-43ac2b02be81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\MenuScene">
+      <UniqueIdentifier>{4ed7eac9-9ca5-434f-aafa-9a18d4a394b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -146,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="..\3dsparty\imgui\imgui_widgets.cpp">
       <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\MenuScene\MenuScene.cpp">
+      <Filter>Sample\MenuScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\3dsparty\imgui\imgui_user.h">
       <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\MenuScene\MenuScene.h">
+      <Filter>Sample\MenuScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

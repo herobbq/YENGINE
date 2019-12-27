@@ -13,8 +13,6 @@
 GLsizei TexWidth = 800, TexHeight = 600;
 FrameBufferTest::FrameBufferTest()
 	:m_shader(nullptr)
-	, m_deltaTime(0.0f)
-	, m_lastFrame(0.0f)
 	, m_Texture1(nullptr)
 	, m_Texture2(nullptr)
 	, m_shader1(nullptr)
@@ -186,10 +184,7 @@ void FrameBufferTest::initBuffers()
 void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 {
 	//glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	float curTime = glfwGetTime();
-	m_deltaTime = curTime - m_lastFrame;
-	m_lastFrame = curTime;
-	YCamera::processInput(YDirector::GetInstance()->getGLwindow(), m_deltaTime);
+
 	glBindFramebuffer(GL_FRAMEBUFFER, m_BUF);
 	glEnable(GL_DEPTH_TEST);
 	glViewport(0, 0, TexWidth, TexHeight);
@@ -212,13 +207,14 @@ void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
-	glViewport(0, 0, YDirector::GetInstance()->getWinsize().width/2, YDirector::GetInstance()->getWinsize().height/2);
+	glViewport(0, 0, YDirector::GetInstance()->getWinsize().width, YDirector::GetInstance()->getWinsize().height);
 
 	m_shader1->use();
 	glBindVertexArray(m_quardVAO);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_FarmeTexture);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glBindVertexArray(0);
 }
 
 

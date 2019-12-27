@@ -85,10 +85,10 @@ void TriangleTest::onDraw(const glm::mat4* transform, uint32_t)
 		-0.5f, -0.5f, 0.0f,  bottomLeftColor.x,bottomLeftColor.y,bottomLeftColor.z,// bottom left
 		0.0f,  0.5f, 0.0f , topColor.x,topColor.y,topColor.z // top 
 	};
-	ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
-	ImGui::Begin("Hello, world!",0, ImGuiWindowFlags_MenuBar);
+	//ImGui::NewFrame();
+	ImGui::Begin("Triangle Vertex Color",0 , ImGuiWindowFlags_MenuBar);
 	ImGui::Text("This is some useful text.");
 	ImGui::ColorEdit3("TopColor",(float*)&topColor);
 	ImGui::ColorEdit3("BottomLeftColor", (float*)&bottomLeftColor);
@@ -108,8 +108,9 @@ void TriangleTest::onDraw(const glm::mat4* transform, uint32_t)
 	glEnableVertexAttribArray(pos);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	glDrawArrays(GL_TRIANGLES, 0, 3);
-	ImGui::Render();
-	//glBindVertexArray(0);
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+//	ImGui::Render();
+	glBindVertexArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+//	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 

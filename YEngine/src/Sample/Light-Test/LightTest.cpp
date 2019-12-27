@@ -136,11 +136,8 @@ void LightTest::initBuffers()
 
 void LightTest::onDraw(const glm::mat4* transform, uint32_t)
 {
-	glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-	float curTime = glfwGetTime();
-	m_deltaTime = curTime - m_lastFrame;
-	m_lastFrame = curTime;
-	YCamera::processInput(YDirector::GetInstance()->getGLwindow(), m_deltaTime);
+	//glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	
 	m_Boxshader->use();
 	
 	glBindVertexArray(m_VAO);

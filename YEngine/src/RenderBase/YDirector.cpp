@@ -130,6 +130,7 @@ void YDirector::drawScene()
 	{
 		m_openGLView->pollEvents();
 	}
+	m_renderer->clean();
 	m_renderer->clear();
 	if (m_NextScene)
 	{

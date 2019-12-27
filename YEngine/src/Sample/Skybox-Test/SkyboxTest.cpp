@@ -118,12 +118,9 @@ void SkyBoxTest::initBuffers()
 
 void SkyBoxTest::onDraw(const glm::mat4* transform, uint32_t)
 {
-	glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	//glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	glDepthFunc(GL_LEQUAL);
-	float curTime = glfwGetTime();
-	m_deltaTime = curTime - m_lastFrame;
-	m_lastFrame = curTime;
-	YCamera::processInput(YDirector::GetInstance()->getGLwindow(), m_deltaTime);
+	
 	glBindVertexArray(m_VAO);
 	m_shader->use();
 	glActiveTexture(GL_TEXTURE0);
@@ -133,8 +130,9 @@ void SkyBoxTest::onDraw(const glm::mat4* transform, uint32_t)
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix());
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, YCamera::m_visitingCamera->getViewMatrix());
 	glm::mat4 model(1);
-	m_shader->setMat4(GLProgram::UNIFORM_NAME_MODEL, glm::scale(model, glm::vec3(10.0)));
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_MODEL, glm::scale(model, glm::vec3(3.0)));
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glDepthFunc(GL_LESS);
+	glBindVertexArray(0);
 }
 

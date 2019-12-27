@@ -24,6 +24,7 @@ public:
 	GLView* getOpenGLView() { return m_openGLView; }
 	YSize&  getWinsize();
 	GLFWwindow* getGLwindow();
+	YScene*   getRenderScene() { return m_RuingScene; }
 protected:
 	void   drawScene();
 	

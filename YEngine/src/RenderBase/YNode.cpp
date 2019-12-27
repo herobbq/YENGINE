@@ -48,6 +48,23 @@ void YNode::addChild(YNode* child, int localZOrder, const std::string &name)
 	addChildHelper(child, localZOrder, -1, name, true);
 }
 
+void YNode::removeChild(YNode* child)
+{
+	if (child == nullptr)
+	{
+		return;
+	}
+	for (auto it = m_vChildrens.begin(); it!=m_vChildrens.end();++it)
+	{
+		if (*it==child)
+		{
+			child->setParent(nullptr);
+			m_vChildrens.erase(it);
+			break;
+		}
+	}
+}
+
 void YNode::draw(YRenderer *renderer, const glm::mat4& transform, uint32_t flags)
 {
 

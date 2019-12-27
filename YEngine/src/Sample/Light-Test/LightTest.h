@@ -34,8 +34,7 @@ protected:
 	unsigned int m_VAO;
 	unsigned int m_LightVAO;
 	YTexture2D* m_Texture1;
-	float     m_deltaTime;	// time between current frame and last frame
-	float     m_lastFrame;
+	
 
 };
 #endif
