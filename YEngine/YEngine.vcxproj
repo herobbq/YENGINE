@@ -138,6 +138,7 @@
     <ClCompile Include="src\RenderBase\YCamera.cpp" />
     <ClCompile Include="src\RenderBase\YCustomCommand.cpp" />
     <ClCompile Include="src\RenderBase\YDirector.cpp" />
+    <ClCompile Include="src\RenderBase\YLight.cpp" />
     <ClCompile Include="src\RenderBase\YNode.cpp" />
     <ClCompile Include="src\RenderBase\YRenderCommand.cpp" />
     <ClCompile Include="src\RenderBase\YRenderer.cpp" />
@@ -153,7 +154,6 @@
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp" />
     <ClCompile Include="src\SourceTool\Application.cpp" />
     <ClCompile Include="src\SourceTool\YLoadShader.cpp" />
-    <ClCompile Include="src\SourceTool\YType.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\3dsparty\Imgae\stb_image.h" />
@@ -174,6 +174,7 @@
     <ClInclude Include="src\RenderBase\YCamera.h" />
     <ClInclude Include="src\RenderBase\YCustomCommand.h" />
     <ClInclude Include="src\RenderBase\YDirector.h" />
+    <ClInclude Include="src\RenderBase\YLight.h" />
     <ClInclude Include="src\RenderBase\YNode.h" />
     <ClInclude Include="src\RenderBase\YRenderCommand.h" />
     <ClInclude Include="src\RenderBase\YRenderer.h" />
@@ -203,6 +204,7 @@
     <None Include="src\Shader\FrameBufferScreen.vert" />
     <None Include="src\Shader\LightTest.frag" />
     <None Include="src\Shader\LightTest.vert" />
+    <None Include="src\Shader\LightTextMaterial.frag" />
     <None Include="src\Shader\NormalBox.frag" />
     <None Include="src\Shader\NormalBox.vert" />
     <None Include="src\Shader\Skybox.frag" />

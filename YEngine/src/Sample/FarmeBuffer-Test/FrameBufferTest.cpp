@@ -10,7 +10,16 @@
 #include "YDirector.h"
 #include "GLView.h"
 #include "YCamera.h"
+
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
+#include "SampleInclude.h"
 GLsizei TexWidth = 800, TexHeight = 600;
+
+float FrameBufferTest::m_fWindowWidth = 800;
+
+float FrameBufferTest::m_fWindowHeight = 600;
 FrameBufferTest::FrameBufferTest()
 	:m_shader(nullptr)
 	, m_Texture1(nullptr)
@@ -184,11 +193,17 @@ void FrameBufferTest::initBuffers()
 void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 {
 	//glfwSetInputMode(YDirector::GetInstance()->getGLwindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGlfw_NewFrame();
+	ImGui::Begin("FrameBufferSize",0 , ImGuiWindowFlags_MenuBar);
+	ImGui::DragFloat("FramerBufferWidth", &m_fWindowWidth,1.0f,0.0f,100000.0f);
+	ImGui::DragFloat("FramerBufferHeight", &m_fWindowHeight, 1.0f, 0.0f, 100000.0f);
+	ImGui::End();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, m_BUF);
 	glEnable(GL_DEPTH_TEST);
 	glViewport(0, 0, TexWidth, TexHeight);
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);  
+	glClearColor(0.5f, 0.3f, 0.3f, 1.0f);  
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glBindVertexArray(m_VAO);
 	m_shader->use();
@@ -205,9 +220,9 @@ void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 	glDisable(GL_DEPTH_TEST);
 
 
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-	glViewport(0, 0, YDirector::GetInstance()->getWinsize().width, YDirector::GetInstance()->getWinsize().height);
+//	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+//	glClear(GL_COLOR_BUFFER_BIT);
+	glViewport(0, 0,m_fWindowWidth, m_fWindowHeight);
 
 	m_shader1->use();
 	glBindVertexArray(m_quardVAO);
@@ -215,7 +230,9 @@ void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 	glBindTexture(GL_TEXTURE_2D, m_FarmeTexture);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(0);
+	glViewport(0, 0, YDirector::GetInstance()->getWinsize().width, YDirector::GetInstance()->getWinsize().height);
 }
+
 
 
 

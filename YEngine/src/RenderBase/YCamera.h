@@ -35,13 +35,12 @@ public:
 	static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 	static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 	static void   processInput(GLFWwindow *window,float deltaTime);
-	glm::vec3&  getCameraPos() { return m_vPostion; }
+	glm::vec3&  getCameraPos() { return getPosition(); }
 public:
 	static YCamera* m_visitingCamera;
 protected:
 	glm::mat4 m_ProjectionMatrix;
 	glm::mat4 m_ViewMatrix;
-	glm::vec3 m_vPostion;
 	glm::vec3 m_vFront;
 	glm::vec3 m_vUp;
 	glm::vec3 m_vRight;
@@ -55,6 +54,7 @@ protected:
 	float m_fMouseSensitivity;
 	float m_fZoom;
 	static bool bClicked;
+	glm::vec3 m_vDefaultDir;
 		
 };
 

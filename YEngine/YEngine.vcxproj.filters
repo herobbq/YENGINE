@@ -105,9 +105,6 @@
     <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp">
       <Filter>Sample\Camera-Test</Filter>
     </ClCompile>
-    <ClCompile Include="src\SourceTool\YType.cpp">
-      <Filter>SourceTool</Filter>
-    </ClCompile>
     <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp">
       <Filter>Sample\Skybox-Test</Filter>
     </ClCompile>
@@ -152,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="src\Sample\MenuScene\MenuScene.cpp">
       <Filter>Sample\MenuScene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderBase\YLight.cpp">
+      <Filter>RenderBase\Light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +263,9 @@
     <ClInclude Include="src\Sample\MenuScene\MenuScene.h">
       <Filter>Sample\MenuScene</Filter>
     </ClInclude>
+    <ClInclude Include="src\RenderBase\YLight.h">
+      <Filter>RenderBase\Light</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\CameraTest.frag">
@@ -315,6 +318,9 @@
     </None>
     <None Include="..\3dsparty\imgui\.gitattributes">
       <Filter>imgui</Filter>
+    </None>
+    <None Include="src\Shader\LightTextMaterial.frag">
+      <Filter>Shader</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

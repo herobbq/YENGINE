@@ -40,8 +40,8 @@ protected:
 	unsigned int m_quardVAO;
 	YTexture2D* m_Texture1;
 	YTexture2D* m_Texture2;
-	
-
+	static  float  m_fWindowWidth;
+	static  float  m_fWindowHeight;
 	int  m_positionAttributeLocation;
 	int  m_ColorAttributeLocation;
 	int  m_TextureAttributeLocation;

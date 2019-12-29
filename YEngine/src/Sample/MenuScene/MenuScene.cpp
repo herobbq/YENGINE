@@ -66,7 +66,7 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 	ImGui::Checkbox("FrameBufferText", &m_bRenderFrameBufferTest);
 	ImGui::Checkbox("LightText", &m_bRenderLightTest);
 	ImGui::End();
-	if (YScene* renderScene = YDirector::GetInstance()->getRenderScene())
+	if (YScene* renderScene = getScene())
 	{
 		if (m_bRenderCameraTest)
 		{
@@ -76,8 +76,11 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 			}
 			else
 			{
-				renderScene->removeChild(m_pCameraTest);
-				renderScene->addChild(m_pCameraTest,1);
+				if (m_pCameraTest->getParent()==nullptr)
+				{
+					renderScene->addChild(m_pCameraTest, 1);
+				}
+				
 			}
 		}
 		else
@@ -93,8 +96,11 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 			}
 			else
 			{
-				renderScene->removeChild(m_pTriangleTest);
-				renderScene->addChild(m_pTriangleTest, 1);
+				if (m_pTriangleTest->getParent()==nullptr)
+				{
+					renderScene->addChild(m_pTriangleTest, 1);
+				}
+				
 			}
 		}
 		else
@@ -110,8 +116,11 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 			}
 			else
 			{
-				renderScene->removeChild(m_pTextureTest);
-				renderScene->addChild(m_pTextureTest, 1);
+				if (m_pTextureTest->getParent()==nullptr)
+				{
+					renderScene->addChild(m_pTextureTest, 1);
+				}
+				
 			}
 		}
 		else
@@ -127,8 +136,11 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 			}
 			else
 			{
-				renderScene->removeChild(m_pFrameBufferTest);
-				renderScene->addChild(m_pFrameBufferTest, 1);
+				if (m_pFrameBufferTest->getParent()==nullptr)
+				{
+					renderScene->addChild(m_pFrameBufferTest, 1);
+				}
+				
 			}
 		}
 		else
@@ -144,8 +156,11 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 			}
 			else
 			{
-				renderScene->removeChild(m_pLightTest);
-				renderScene->addChild(m_pLightTest, 1);
+				if (m_pLightTest->getParent()==nullptr)
+				{
+					renderScene->addChild(m_pLightTest, 1);
+				}
+				
 			}
 		}
 		else
@@ -161,8 +176,11 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 			}
 			else
 			{
-				renderScene->removeChild(m_pSkyboxTest);
-				renderScene->addChild(m_pSkyboxTest, 1);
+				if (m_pSkyboxTest->getParent()==nullptr)
+				{
+					renderScene->addChild(m_pSkyboxTest, 1);
+				}
+				
 			}
 		}
 		else

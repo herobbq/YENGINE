@@ -35,13 +35,18 @@ protected:
 	unsigned int m_VBO;
 	unsigned int m_VAO;
 	unsigned int m_EBO;
+	unsigned int m_LightVAO;
+	YShader*    m_Lightshader;
 	YTexture2D* m_Texture1;
 	YTexture2D* m_Texture2;
-	
-	
+	static glm::vec3 lightPos;
+	glm::vec3    m_LightAmbient;
+	glm::vec3   m_LightDiffuse;
+	glm::vec3    m_LightSpecular;
 	int  m_positionAttributeLocation;
 	int  m_ColorAttributeLocation;
 	int  m_TextureAttributeLocation;
+	float m_uShininess;
 };
 
 #endif // CAMERATEST_H_
