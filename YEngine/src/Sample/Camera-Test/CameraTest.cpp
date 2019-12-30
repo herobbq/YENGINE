@@ -13,15 +13,17 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include "YLight.h"
 glm::vec3 CameraTest::lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
 CameraTest::CameraTest()
 	:m_shader(nullptr)
 	, m_Texture1(nullptr)
 	, m_Texture2(nullptr)
 	, m_LightAmbient(0.2f, 0.2f, 0.2f)
-	, m_LightDiffuse(0.2f, 0.2f, 0.2f)
+	, m_LightDiffuse(0.5f, 0.5f, 0.5f)
 	, m_LightSpecular(1.0f, 1.0f, 1.0f)
-	, m_uShininess(64.0f)
+	, m_uShininess(32.0f)
+	, m_pDirectionLight(nullptr)
 {
 
 }
@@ -57,7 +59,7 @@ void CameraTest::draw(YRenderer* renderer, const glm::mat4& transform, uint32_t 
 
 bool CameraTest::init()
 {
-	
+	m_pDirectionLight = DirectionLight::create(glm::vec3(-0.2f, -1.0f, -0.3f), YColor());
 	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
 	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
 	m_shader = new YShader("./src/Shader/CameraTest.vert", "./src/Shader/CameraTest.frag");
@@ -200,12 +202,20 @@ void CameraTest::onDraw(const glm::mat4* transform, uint32_t)
 	auto ss = YCamera::m_visitingCamera->getViewMatrix();
 	// render boxes
 	glBindVertexArray(m_VAO);
+	if (m_pDirectionLight)
+	{
+		m_shader->SetVec3("u_light.director", m_pDirectionLight->getDirection());
+	}
 	m_shader->SetVec3("u_light.ambient", m_LightAmbient);
 	m_shader->SetVec3("u_light.diffuse", m_LightDiffuse);
 	m_shader->SetVec3("u_light.specular", m_LightSpecular);
 	m_shader->SetVec3("u_light.position", lightPos);
+	m_shader->SetFloat("u_light.constant", 1.0f);
+	m_shader->SetFloat("u_light.linear", 0.09f);
+	m_shader->SetFloat("u_light.quadratic", 0.032f);
+	
 	glUniform1f(glGetUniformLocation(m_shader->GetProgram(), "u_material.shininess"), m_uShininess);
-	for (unsigned int i = 0; i < 1; i++)
+	for (unsigned int i = 0; i < 10; i++)
 	{
 		// calculate the model matrix for each object and pass it to shader before drawing
 		glm::mat4 model = glm::mat4(1.0f);

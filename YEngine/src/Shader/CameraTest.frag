@@ -13,6 +13,11 @@ struct Light
    vec3 diffuse;
    vec3 specular;
    vec3 position;
+   vec3  director;
+
+   float constant;
+   float linear;
+   float quadratic;
 };
 
 in vec2 texCoord;
@@ -32,6 +37,9 @@ void main()
 
 	vec3 normal = normalize(v_normal);
 	vec3 LightDir = normalize(u_light.position - v_fargPos);
+	float distance = length(u_light.position - v_fargPos);
+	float attenuation = 1.0 / (u_light.constant + u_light.linear * distance + u_light.quadratic * (distance * distance));
+	//vec3 LightDir = normalize(-u_light.director);
 	float diff = max(dot(normal,LightDir),0.0);
 	vec3 diffuse = diff * vec3(texture(u_material.diffuse,texCoord)) * u_light.diffuse;
 
@@ -40,7 +48,7 @@ void main()
 	float specu = pow(max(dot(viewDir,reflectDir),0.0),u_material.shininess);
 	vec3  specular = specu *vec3(texture( u_material.specular,texCoord)) * u_light.specular; 
 
-	vec3 result =  ambinet + diffuse +specular;
+	vec3 result =  attenuation * (ambinet + diffuse +specular);
 
     fragColor = vec4(result ,1.0f);
 	

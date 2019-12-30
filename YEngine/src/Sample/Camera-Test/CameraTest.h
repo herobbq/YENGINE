@@ -11,6 +11,7 @@
 class YShader;
 class GLFWwindow;
 class YTexture2D;
+class DirectionLight;
 class CameraTest :public YNode
 {
 
@@ -47,6 +48,7 @@ protected:
 	int  m_ColorAttributeLocation;
 	int  m_TextureAttributeLocation;
 	float m_uShininess;
+	DirectionLight*    m_pDirectionLight;
 };
 
 #endif // CAMERATEST_H_

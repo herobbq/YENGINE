@@ -44,7 +44,7 @@ void DirectionLight::setDirection(const glm::vec3 &dir)
 	setRotationFromDirection(dir);
 }
 
-glm::vec3 DirectionLight::getDirection() const
+glm::vec3& DirectionLight::getDirection() const
 {
 	return m_direction;
 }

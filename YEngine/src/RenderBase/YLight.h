@@ -23,11 +23,12 @@ protected:
 	void setRotationFromDirection(const glm::vec3 &direction);
 protected:
 	float       m_fintensity;
-	glm::vec3   m_direction;
+	mutable glm::vec3   m_direction;
 	
 };
 class  DirectionLight : public BaseLight
 {
+public:
 	static DirectionLight* create(const glm::vec3 &direction, const  YColor&color);
 
 	//get light type
@@ -38,7 +39,7 @@ class  DirectionLight : public BaseLight
 	/**
 	* Returns the Direction in parent.
 	*/
-	glm::vec3 getDirection() const;
+	glm::vec3& getDirection() const;
 
 	virtual ~DirectionLight(); 
 };
