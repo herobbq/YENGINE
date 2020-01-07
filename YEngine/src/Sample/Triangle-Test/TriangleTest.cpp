@@ -1,14 +1,10 @@
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
 #include "TriangleTest.h"
 #include "YRenderer.h"
 #include "YLoadShader.h"
 
-#include <glfw3.h>
 #include "GLProgram.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
+
 TriangleTest::TriangleTest()
 	:m_shader(nullptr)
 	,topColor(0.0f, 0.0f, 1.0f)

@@ -1,12 +1,8 @@
 #include "GLViewImpl.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 
 
-#define GLEW_STATIC
-#include "glew.h"
-#include <glfw3.h>
+
+#include "hfileinclude.h"
 #include <iostream>
 #include "YCamera.h"
 

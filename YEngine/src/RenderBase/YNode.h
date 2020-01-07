@@ -50,6 +50,7 @@ public:
 	void updateRotationQuat();
 	void updateRotation3D();
 	virtual void setColor(const YColor& color);
+	virtual YColor& getColor() { return m_displayedColor; }
 protected:
 	virtual bool init();
 	void insertChild(YNode* child, int z);

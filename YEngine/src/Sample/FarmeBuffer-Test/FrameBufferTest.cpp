@@ -1,7 +1,6 @@
 #include "FrameBufferTest.h"
 
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
 #include "YLoadShader.h"
 #include "YRenderer.h"
 #include "GLProgram.h"
@@ -11,10 +10,6 @@
 #include "GLView.h"
 #include "YCamera.h"
 
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-#include "SampleInclude.h"
 GLsizei TexWidth = 800, TexHeight = 600;
 
 float FrameBufferTest::m_fWindowWidth = 800;
@@ -64,8 +59,7 @@ void FrameBufferTest::draw(YRenderer* renderer, const glm::mat4& transform, uint
 bool FrameBufferTest::init()
 {
 
-	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
-	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
+	
 	m_shader = new YShader("./src/Shader/CameraTest.vert", "./src/Shader/CameraTest.frag");
 	m_shader1 = new YShader("./src/Shader/FrameBufferScreen.vert", "./src/Shader/FrameBufferScreen.frag");
 	initBuffers();

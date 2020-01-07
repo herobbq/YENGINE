@@ -1,6 +1,5 @@
 #include "LightTest.h"
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
 #include "YLoadShader.h"
 #include "YRenderer.h"
 #include "GLProgram.h"
@@ -9,9 +8,6 @@
 #include "YDirector.h"
 #include "GLView.h"
 #include "YCamera.h"
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 #include "SampleInclude.h"
 
 #define MaterialTest
@@ -58,8 +54,7 @@ void LightTest::draw(YRenderer* renderer, const glm::mat4& transform, uint32_t f
 
 bool LightTest::init()
 {
-	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
-	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
+	
 #ifndef MaterialTest
 	m_Boxshader = new YShader("./src/Shader/LightTest.vert", "./src/Shader/LightTest.frag");
 #else

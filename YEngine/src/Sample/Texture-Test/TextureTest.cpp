@@ -1,7 +1,5 @@
 #include "TextureTest.h"
-#define GLEW_STATIC
-#include "glew.h"
-#include <glfw3.h>
+#include "hfileinclude.h"
 #include "YRenderer.h"
 #include "YLoadShader.h"
 #include "GLProgram.h"

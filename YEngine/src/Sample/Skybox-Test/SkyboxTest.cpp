@@ -1,6 +1,5 @@
 #include "SkyboxTest.h"
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
 #include "YLoadShader.h"
 #include "YRenderer.h"
 #include "GLProgram.h"
@@ -45,8 +44,7 @@ void SkyBoxTest::draw(YRenderer* renderer, const glm::mat4& transform, uint32_t 
 
 bool SkyBoxTest::init()
 {
-	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
-	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
+	
 	m_shader = new YShader("./src/Shader/Skybox.vert", "./src/Shader/Skybox.frag");
 	initBuffers();
 	return true;
@@ -128,7 +126,7 @@ void SkyBoxTest::onDraw(const glm::mat4* transform, uint32_t)
 	//glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 	//glUniformMatrix4fv(glGetUniformLocation(m_shader->GetProgram(), GLProgram::UNIFORM_NAME_VIEW),1,GL_FALSE,&YCamera::m_visitingCamera->getViewMatrix()[0][0]);
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix());
-	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, YCamera::m_visitingCamera->getViewMatrix());
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, glm::mat4(glm::mat3(YCamera::m_visitingCamera->getViewMatrix()))) ;
 	glm::mat4 model(1);
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_MODEL, glm::scale(model, glm::vec3(3.0)));
 	glDrawArrays(GL_TRIANGLES, 0, 36);

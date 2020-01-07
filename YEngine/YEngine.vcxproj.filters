@@ -61,6 +61,12 @@
     <Filter Include="Sample\MenuScene">
       <UniqueIdentifier>{4ed7eac9-9ca5-434f-aafa-9a18d4a394b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\Model-Test">
+      <UniqueIdentifier>{e6145436-4fe3-4d7b-8f40-8f922013385c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sample\SeniorGL-Test">
+      <UniqueIdentifier>{4f4fb91e-09a3-4682-acfd-3d706797904d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -152,6 +158,12 @@
     </ClCompile>
     <ClCompile Include="src\RenderBase\YLight.cpp">
       <Filter>RenderBase\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\Model-Test\ModelTest.cpp">
+      <Filter>Sample\Model-Test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\SeniorGL-Test\SeniorGLTest.cpp">
+      <Filter>Sample\SeniorGL-Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +278,21 @@
     <ClInclude Include="src\RenderBase\YLight.h">
       <Filter>RenderBase\Light</Filter>
     </ClInclude>
+    <ClInclude Include="src\SourceTool\YMesh.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SourceTool\YModel.h">
+      <Filter>SourceTool</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\Model-Test\ModelTest.h">
+      <Filter>Sample\Model-Test</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hfileinclude.h">
+      <Filter>extern</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\SeniorGL-Test\SeniorGLTest.h">
+      <Filter>Sample\SeniorGL-Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\CameraTest.frag">
@@ -320,6 +347,21 @@
       <Filter>imgui</Filter>
     </None>
     <None Include="src\Shader\LightTextMaterial.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ModelTest.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ModelTest.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\SeniorGLTest.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\SeniorGLTest.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\SeniorGLColorTest.frag">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

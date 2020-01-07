@@ -3,6 +3,12 @@
 class GLProgram
 {
 public:
+	static const int LAYOUT_INDEX_POSITION;
+	static const int LAYOUT_INDEX_NORMAL;
+	static const int LAYOUT_INDEX_TEXCOORDS;
+	static const int LAYOUT_INDEX_TANGENT;
+	static const int LAYOUT_INDEX_BITTANGENT;
+public:
 	static const char* UNIFORM_NAME_MODEL;
 	static const char* UNIFORM_NAME_VIEW;
 	static const char* UNIFORM_NAME_PROJECTION;

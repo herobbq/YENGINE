@@ -19,12 +19,14 @@ public:
 	virtual LightType getLightType() const = 0;
 	float getIntensity() const { return m_fintensity; }
 	void setIntensity(float intensity);
+	virtual void setEnable(bool enable) { m_Enable = enable; }
+	bool   getEnable() { return m_Enable; }
 protected:
 	void setRotationFromDirection(const glm::vec3 &direction);
 protected:
 	float       m_fintensity;
 	mutable glm::vec3   m_direction;
-	
+	bool        m_Enable;
 };
 class  DirectionLight : public BaseLight
 {

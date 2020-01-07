@@ -2,6 +2,7 @@
 
 BaseLight::BaseLight()
 	:m_fintensity(1.0f)
+	,m_Enable(false)
 {
 
 }
@@ -103,13 +104,13 @@ glm::vec3 SpotLight::getDirectionInWorld() const
 void SpotLight::setInnerAngle(float angle)
 {
 	m_innerAngle = angle;
-	m_cosInnerAngle = cosf(angle);
+	m_cosInnerAngle = cosf(glm::radians(angle));
 }
 
 void SpotLight::setOuterAngle(float outerAngle)
 {
 	m_outerAngle = outerAngle;
-	m_cosOuterAngle = cosf(outerAngle);
+	m_cosOuterAngle = cosf(glm::radians(outerAngle));
 }
 
 SpotLight::SpotLight()

@@ -2,8 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
 using namespace std;
 YShader::YShader(const char* vertexPath, const char* fragmentPath, const char*geometryPath)
 	:ID(-1)

@@ -1,6 +1,6 @@
 #ifndef YTYPE_H_
 #define YTYPE_H_
-#include "YType.h"
+
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -19,6 +19,7 @@ struct YColor
 	float G;
 	float B;
 	float A;
+	glm::vec3 toVec3() { return glm::vec3(R, G, B); }
 };
 
 

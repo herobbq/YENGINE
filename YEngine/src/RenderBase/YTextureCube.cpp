@@ -1,8 +1,9 @@
 
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
 #include "YTextureCube.h"
+
 #include "stb_image.h"
+
 
 YTextureCube* YTextureCube::create(const std::string& positive_x, const std::string& negative_x, const std::string& positive_y, const std::string& negative_y, const std::string& positive_z, const std::string& negative_z)
 {

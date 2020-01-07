@@ -15,12 +15,16 @@ MenuScene::MenuScene()
 	,m_bRenderSkyboxTest(false)
 	,m_bRenderTextureTest(false)
 	,m_bRenderTriangleTest(false)
+	,m_bRenderModelTest(false)
+	, m_bRenderSeniorGLTest(false)
 	,m_pCameraTest(nullptr)
 	,m_pFrameBufferTest(nullptr)
 	,m_pLightTest(nullptr)
 	,m_pSkyboxTest(nullptr)
 	,m_pTextureTest(nullptr)
 	,m_pTriangleTest(nullptr)
+	,m_pModelTest(nullptr)
+	, m_pSeniorGLTest(nullptr)
 	,m_deltaTime(0)
 	,m_lastFrame(0)
 {
@@ -45,6 +49,8 @@ void MenuScene::draw(YRenderer* renderer, const glm::mat4& transform, uint32_t f
 
 bool MenuScene::init()
 {
+	glfwSetCursorPosCallback(YDirector::GetInstance()->getGLwindow(), YCamera::mouse_callback);
+	glfwSetScrollCallback(YDirector::GetInstance()->getGLwindow(), YCamera::scroll_callback);
 	return true;
 }
 
@@ -65,6 +71,8 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 	ImGui::Checkbox("SkyboxText", &m_bRenderSkyboxTest);
 	ImGui::Checkbox("FrameBufferText", &m_bRenderFrameBufferTest);
 	ImGui::Checkbox("LightText", &m_bRenderLightTest);
+	ImGui::Checkbox("ModelText", &m_bRenderModelTest);
+	ImGui::Checkbox("SeniorGLTest", &m_bRenderSeniorGLTest);
 	ImGui::End();
 	if (YScene* renderScene = getScene())
 	{
@@ -186,6 +194,44 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 		else
 		{
 			renderScene->removeChild(m_pSkyboxTest);
+		}
+		if (m_bRenderModelTest)
+		{
+			if (m_pModelTest == nullptr)
+			{
+				m_pModelTest = ModelTest::create();
+			}
+			else
+			{
+				if (m_pModelTest->getParent() == nullptr)
+				{
+					renderScene->addChild(m_pModelTest, 1);
+				}
+
+			}
+		}
+		else
+		{
+			renderScene->removeChild(m_pModelTest);
+		}
+		if (m_bRenderSeniorGLTest)
+		{
+			if (m_pSeniorGLTest == nullptr)
+			{
+				m_pSeniorGLTest = SeniorGLTest::create();
+			}
+			else
+			{
+				if (m_pSeniorGLTest->getParent() == nullptr)
+				{
+					renderScene->addChild(m_pSeniorGLTest, 1);
+				}
+
+			}
+		}
+		else
+		{
+			renderScene->removeChild(m_pSeniorGLTest);
 		}
 	}
 	

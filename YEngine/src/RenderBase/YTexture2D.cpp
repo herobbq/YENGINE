@@ -1,9 +1,8 @@
-#define GLEW_STATIC
-#include "glew.h"
+#include "hfileinclude.h"
+
 #include "YTexture2D.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
 
 
 YTexture2D::YTexture2D()
@@ -35,19 +34,26 @@ bool YTexture2D::init(const std::string& strFilePath)
 {
 	m_strPath = strFilePath;
 	int width, height, nrChannels;
-	stbi_set_flip_vertically_on_load(true);
+	//stbi_set_flip_vertically_on_load(true);
 	unsigned char *data = stbi_load(m_strPath.c_str(), &width, &height, &nrChannels, 0);
 	if (data)
 	{
 		glGenTextures(1, &m_texture);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
+		GLenum format;
+		if (nrChannels == 1)
+			format = GL_RED;
+		else if (nrChannels == 3)
+			format = GL_RGB;
+		else if (nrChannels == 4)
+			format = GL_RGBA;
 		if (nrChannels==3)
 		{
            #ifdef TexImage2D
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, format, GL_UNSIGNED_BYTE, data);
            #else
 			glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGB8, width, height);
-			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, format, GL_UNSIGNED_BYTE, data);
            #endif
 			
 			//
@@ -55,7 +61,7 @@ bool YTexture2D::init(const std::string& strFilePath)
 		}else if (nrChannels == 4)
 		{
           #ifdef TEXTIMAGE2D
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
          #elseif COMPRESSED
            glTexImage2D(GL_TEXTURE_2D, 0, GL_COMPRESSED_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 		   GLint compFlag;
@@ -63,24 +69,27 @@ bool YTexture2D::init(const std::string& strFilePath)
 		   assert(compFlag != 0)
         #else
 			glTextureStorage2D(m_texture, 2, GL_RGBA32F, width, height);
-			glTextureSubImage2D(m_texture, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+			glTextureSubImage2D(m_texture, 0, 0, 0, width, height, format, GL_UNSIGNED_BYTE, data);
         #endif
 		
 		}
 		
 		glGenerateMipmap(GL_TEXTURE_2D);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, format == GL_RGBA ? GL_CLAMP_TO_EDGE : GL_REPEAT); // for this tutorial: use GL_CLAMP_TO_EDGE to prevent semi-transparent borders. Due to interpolation it takes texels from next repeat 
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, format == GL_RGBA ? GL_CLAMP_TO_EDGE : GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		stbi_image_free(data);
+		return true;
 	}
 	else
 	{
+		stbi_image_free(data);
 		return false;
 	}
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	// set texture wrapping to GL_REPEAT (default wrapping method)
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	// set texture filtering parameters
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	
 
-	stbi_image_free(data);
+	
 	return true;
 }
 

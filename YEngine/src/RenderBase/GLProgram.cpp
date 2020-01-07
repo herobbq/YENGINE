@@ -1,5 +1,15 @@
 #include "GLProgram.h"
 
+const int GLProgram::LAYOUT_INDEX_POSITION = 0;
+
+const int GLProgram::LAYOUT_INDEX_NORMAL = 1;
+
+const int GLProgram::LAYOUT_INDEX_TEXCOORDS = 2;
+
+const int GLProgram::LAYOUT_INDEX_TANGENT = 3;
+
+const int GLProgram::LAYOUT_INDEX_BITTANGENT = 4;
+
 const char* GLProgram::UNIFORM_NAME_MODEL = "u_model";
 
 const char* GLProgram::UNIFORM_NAME_VIEW = "u_view";

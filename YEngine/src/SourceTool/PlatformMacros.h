@@ -24,4 +24,7 @@ static T* create()\
   } \
 }
 
+
+
+
 #endif // PLATFORMMACROS_H_
