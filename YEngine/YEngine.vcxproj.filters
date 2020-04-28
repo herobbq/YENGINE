@@ -67,6 +67,9 @@
     <Filter Include="Sample\SeniorGL-Test">
       <UniqueIdentifier>{4f4fb91e-09a3-4682-acfd-3d706797904d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\AdvanceLight">
+      <UniqueIdentifier>{6523dfaa-a800-47fe-8757-311ca1390ab4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -164,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="src\Sample\SeniorGL-Test\SeniorGLTest.cpp">
       <Filter>Sample\SeniorGL-Test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\AdvanceLight\AdvanceLight.cpp">
+      <Filter>Sample\AdvanceLight</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +299,9 @@
     <ClInclude Include="src\Sample\SeniorGL-Test\SeniorGLTest.h">
       <Filter>Sample\SeniorGL-Test</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sample\AdvanceLight\AdvanceLight.h">
+      <Filter>Sample\AdvanceLight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\CameraTest.frag">
@@ -362,6 +371,27 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="src\Shader\SeniorGLColorTest.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\FrameBuffer.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\FrameBuffer.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ModelTestNormal.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ModelTestNormal.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ModelTestNormal.geom">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\AdvanceLight.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\AdvanceLight.vert">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

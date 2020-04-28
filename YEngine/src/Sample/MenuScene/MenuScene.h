@@ -27,6 +27,7 @@ protected:
 	bool           m_bRenderTextureTest;
 	bool           m_bRenderModelTest;
 	bool           m_bRenderSeniorGLTest;
+	bool           m_bRenderAdvanceTest;
 	float         m_deltaTime;	// time between current frame and last frame
 	float        m_lastFrame;
 protected:
@@ -38,6 +39,7 @@ protected:
 	YNode*         m_pTextureTest;
 	YNode*         m_pModelTest;
 	YNode*         m_pSeniorGLTest;
+	YNode*         m_pAdvanceGLTest;
 
 	
 };

@@ -41,6 +41,7 @@ protected:
 	bool         m_bDepthTest;
 	bool         m_bStencilTest;
 	bool         m_bTransparentTest;
+	bool         m_bCullFace;
 
 };
 #endif

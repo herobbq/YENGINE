@@ -11,10 +11,10 @@ public:
 	};
 public:
 	
-	static YTexture2D* create(const std::string& strFilePath);
+	static YTexture2D* create(const std::string& strFilePath,bool useGamma = false);
 	unsigned int GetName() { return m_texture; }
 protected:
-	bool init(const std::string& strFilePath);
+	bool init(const std::string& strFilePath, bool useGamma = false);
 	YTexture2D();
 	virtual ~YTexture2D();
 protected:

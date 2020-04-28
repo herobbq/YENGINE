@@ -73,7 +73,7 @@
     <LibraryPath>../3dsparty/glew/lib;../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\MenuScene;.\src\Sample\Triangle-Test;.\src;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;..\3dsparty\assimp\include;..\3dsparty\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\MenuScene;.\src\Sample\AdvanceLight;.\src\Sample\Triangle-Test;.\src;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;..\3dsparty\assimp\include;..\3dsparty\imgui;$(IncludePath)</IncludePath>
     <LibraryPath>..\3dsparty\glew\lib;..\3dsparty\assimp\lib;..\3dsparty\GLFW\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\</OutDir>
   </PropertyGroup>
@@ -145,6 +145,7 @@
     <ClCompile Include="src\RenderBase\YScene.cpp" />
     <ClCompile Include="src\RenderBase\YTexture2D.cpp" />
     <ClCompile Include="src\RenderBase\YTextureCube.cpp" />
+    <ClCompile Include="src\Sample\AdvanceLight\AdvanceLight.cpp" />
     <ClCompile Include="src\Sample\Camera-Test\CameraTest.cpp" />
     <ClCompile Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.cpp" />
     <ClCompile Include="src\Sample\Light-Test\LightTest.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="src\RenderBase\YScene.h" />
     <ClInclude Include="src\RenderBase\YTexture2D.h" />
     <ClInclude Include="src\RenderBase\YTextureCube.h" />
+    <ClInclude Include="src\Sample\AdvanceLight\AdvanceLight.h" />
     <ClInclude Include="src\Sample\Camera-Test\CameraTest.h" />
     <ClInclude Include="src\Sample\FarmeBuffer-Test\FrameBufferTest.h" />
     <ClInclude Include="src\Sample\Light-Test\LightTest.h" />
@@ -205,8 +207,12 @@
     <None Include="..\3dsparty\imgui\.editorconfig" />
     <None Include="..\3dsparty\imgui\.gitattributes" />
     <None Include="..\3dsparty\imgui\imgui_user.inl" />
+    <None Include="src\Shader\AdvanceLight.frag" />
+    <None Include="src\Shader\AdvanceLight.vert" />
     <None Include="src\Shader\CameraTest.frag" />
     <None Include="src\Shader\CameraTest.vert" />
+    <None Include="src\Shader\FrameBuffer.frag" />
+    <None Include="src\Shader\FrameBuffer.vert" />
     <None Include="src\Shader\FrameBufferScreen.frag" />
     <None Include="src\Shader\FrameBufferScreen.vert" />
     <None Include="src\Shader\LightTest.frag" />
@@ -214,6 +220,9 @@
     <None Include="src\Shader\LightTextMaterial.frag" />
     <None Include="src\Shader\ModelTest.frag" />
     <None Include="src\Shader\ModelTest.vert" />
+    <None Include="src\Shader\ModelTestNormal.frag" />
+    <None Include="src\Shader\ModelTestNormal.geom" />
+    <None Include="src\Shader\ModelTestNormal.vert" />
     <None Include="src\Shader\NormalBox.frag" />
     <None Include="src\Shader\NormalBox.vert" />
     <None Include="src\Shader\SeniorGLColorTest.frag" />

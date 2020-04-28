@@ -1,5 +1,4 @@
-#ifndef MODELTEST_H_
-#define MODELTEST_H_
+#pragma once
 
 #include "YNode.h"
 #include "YCustomCommand.h"
@@ -9,15 +8,15 @@ class YShader;
 class GLFWwindow;
 class YTexture2D;
 class YModel;
-class ModelTest :public YNode
+class AdvanceLight :public YNode
 {
 
 
 public:
-	ModelTest();
-	virtual ~ModelTest();
+	AdvanceLight();
+	virtual ~AdvanceLight();
 public:
-	Y_CREATESAMPLE(ModelTest);
+	Y_CREATESAMPLE(AdvanceLight);
 	virtual void draw(YRenderer* renderer, const glm::mat4& transform, uint32_t flags) override;
 
 	//virtual void onDraw();
@@ -25,21 +24,19 @@ protected:
 	virtual bool init() override;
 	virtual void initBuffers();
 	void onDraw(const glm::mat4* transform, uint32_t);
-
+	void ChangeTexture();
 
 protected:
 	YCustomCommand m_customCommand;
-	YShader*    m_Modelshader;
-	YShader*    m_ModelNormalshader;
-	unsigned int m_VBO;
 	unsigned int m_VAO;
-	unsigned int m_LightVAO;
-	bool		 m_bNoramlLine;
-	bool         m_bFaceLine;
-	bool		 m_bTangentLine;
-	bool         m_bBitTangentLine;
-	YModel*      m_pModel;
+	YShader*    m_shader;
+	bool         m_bUseBlinn;
+	bool         m_bUseGamma;
+	bool         m_bUseDistance;
+	bool         m_LastStatus;
+	glm::vec3 m_arrLightPositions[4];
+	glm::vec3 m_arrLightColors[4];
+	YTexture2D* m_Texture;
 	
 
 };
-#endif

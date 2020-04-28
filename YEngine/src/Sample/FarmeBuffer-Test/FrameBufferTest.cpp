@@ -60,7 +60,7 @@ bool FrameBufferTest::init()
 {
 
 	
-	m_shader = new YShader("./src/Shader/CameraTest.vert", "./src/Shader/CameraTest.frag");
+	m_shader = new YShader("./src/Shader/FrameBuffer.vert", "./src/Shader/FrameBuffer.frag");
 	m_shader1 = new YShader("./src/Shader/FrameBufferScreen.vert", "./src/Shader/FrameBufferScreen.frag");
 	initBuffers();
 	return true;
@@ -123,22 +123,30 @@ void FrameBufferTest::initBuffers()
 		1.0f, -1.0f,  1.0f, 0.0f,
 		1.0f,  1.0f,  1.0f, 1.0f
 	};
+	float planeVertices[] = {
+		// positions          // texture Coords (note we set these higher than 1 (together with GL_REPEAT as texture wrapping mode). this will cause the floor texture to repeat)
+		5.0f, -0.5f,  5.0f,  2.0f, 0.0f,
+		-5.0f, -0.5f,  5.0f,  0.0f, 0.0f,
+		-5.0f, -0.5f, -5.0f,  0.0f, 2.0f,
+
+		5.0f, -0.5f,  5.0f,  2.0f, 0.0f,
+		-5.0f, -0.5f, -5.0f,  0.0f, 2.0f,
+		5.0f, -0.5f, -5.0f,  2.0f, 2.0f
+	};
 
 	glGenVertexArrays(1, &m_VAO);
 	glGenBuffers(1, &m_VBO);
 	glBindVertexArray(m_VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), cubeVertices, GL_STATIC_DRAW);
-	m_shader->use();
-	 
-	m_positionAttributeLocation= glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_POSITION);
+	
 
-	glVertexAttribPointer(m_positionAttributeLocation, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), nullptr);
-	glEnableVertexAttribArray(m_positionAttributeLocation);
+	glVertexAttribPointer(GLProgram::LAYOUT_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), nullptr);
+	glEnableVertexAttribArray(GLProgram::LAYOUT_INDEX_POSITION);
 
-	m_TextureAttributeLocation = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_TEX_COORD);
-	glVertexAttribPointer(m_TextureAttributeLocation, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(m_TextureAttributeLocation);
+	
+	glVertexAttribPointer(GLProgram::LAYOUT_INDEX_TEXCOORDS, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(GLProgram::LAYOUT_INDEX_TEXCOORDS);
 	glBindVertexArray(0);
 
 	unsigned int _vbo;
@@ -158,9 +166,22 @@ void FrameBufferTest::initBuffers()
 	glEnableVertexAttribArray(texcoord);
 	
 	glBindVertexArray(0);
-
-	m_Texture1 = YTexture2D::create("src/Sample/Camera-Test/Texture/container.jpg");
+	glGenVertexArrays(1, &m_planeVAO);
+	glGenBuffers(1, &_vbo);
+	glBindVertexArray(m_planeVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, _vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(planeVertices), planeVertices, GL_STATIC_DRAW);
 	
+
+	glVertexAttribPointer(GLProgram::LAYOUT_INDEX_POSITION, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), nullptr);
+	glEnableVertexAttribArray(GLProgram::LAYOUT_INDEX_POSITION);
+
+	glVertexAttribPointer(GLProgram::LAYOUT_INDEX_TEXCOORDS, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(GLProgram::LAYOUT_INDEX_TEXCOORDS);
+	glBindVertexArray(0);
+
+	m_Texture1 = YTexture2D::create("src/Sample/FarmeBuffer-Test/Texture/container.jpg");
+	m_Texture2 = YTexture2D::create("src/Sample/FarmeBuffer-Test/Texture/metal.png");
 	m_shader1->SetInt("utexture", 0);
 	glGenFramebuffers(1, &m_BUF);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_BUF);
@@ -197,8 +218,16 @@ void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 	glBindFramebuffer(GL_FRAMEBUFFER, m_BUF);
 	glEnable(GL_DEPTH_TEST);
 	glViewport(0, 0, TexWidth, TexHeight);
-	glClearColor(0.5f, 0.3f, 0.3f, 1.0f);  
+	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glBindVertexArray(m_planeVAO);
+	m_shader->use();
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix()); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_VIEW, glm::translate(YCamera::m_visitingCamera->getViewMatrix(), glm::vec3(0.0, 0.0, -3.0)));
+	m_shader->setMat4(GLProgram::UNIFORM_NAME_MODEL, glm::mat4(1));
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, m_Texture2->GetName());
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glBindVertexArray(m_VAO);
 	m_shader->use();
 	m_shader->setMat4(GLProgram::UNIFORM_NAME_PROJECTION, YCamera::m_visitingCamera->getProjectionMatrix()); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
@@ -207,7 +236,7 @@ void FrameBufferTest::onDraw(const glm::mat4* transform, uint32_t)
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_Texture1->GetName());
 	glDrawArrays(GL_TRIANGLES, 0, 36);
-	////glGenerateTextureMipmap(m_FarmeTexture);
+	//glGenerateTextureMipmap(m_FarmeTexture);
 	glBindVertexArray(0);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

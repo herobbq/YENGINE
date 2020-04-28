@@ -35,6 +35,7 @@ protected:
 	YShader*    m_shader1;
 	unsigned int m_VBO;
 	unsigned int m_VAO;
+	unsigned int m_planeVAO;
 	unsigned int m_BUF;
 	unsigned int m_FarmeTexture;
 	unsigned int m_quardVAO;

@@ -3,8 +3,8 @@
 #include "YTexture2D.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
-
+#define  TexImage2D 1
+#define TEXTIMAGE2D 1
 YTexture2D::YTexture2D()
 {
 
@@ -15,10 +15,10 @@ YTexture2D::~YTexture2D()
 
 }
 
-YTexture2D* YTexture2D::create(const std::string& strFilePath)
+YTexture2D* YTexture2D::create(const std::string& strFilePath,bool useGamma)
 {
 	YTexture2D* _text = new (std::nothrow)YTexture2D;
-	if (_text->init(strFilePath))
+	if (_text->init(strFilePath, useGamma))
 	{
 		return _text;
 	}
@@ -30,7 +30,7 @@ YTexture2D* YTexture2D::create(const std::string& strFilePath)
 
 
 
-bool YTexture2D::init(const std::string& strFilePath)
+bool YTexture2D::init(const std::string& strFilePath, bool useGamma )
 {
 	m_strPath = strFilePath;
 	int width, height, nrChannels;
@@ -50,7 +50,15 @@ bool YTexture2D::init(const std::string& strFilePath)
 		if (nrChannels==3)
 		{
            #ifdef TexImage2D
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+			if (useGamma)
+			{
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_SRGB, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+			}
+			else
+			{
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+			}
+			
            #else
 			glTexStorage2D(GL_TEXTURE_2D, 1, GL_RGB8, width, height);
 			glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, format, GL_UNSIGNED_BYTE, data);
@@ -61,8 +69,16 @@ bool YTexture2D::init(const std::string& strFilePath)
 		}else if (nrChannels == 4)
 		{
           #ifdef TEXTIMAGE2D
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-         #elseif COMPRESSED
+			if (useGamma)
+			{
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_SRGB_ALPHA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+			}
+			else
+			{
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+			}
+			
+         #elif COMPRESSED
            glTexImage2D(GL_TEXTURE_2D, 0, GL_COMPRESSED_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 		   GLint compFlag;
 		   glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_COMPRESSED, &compFlag);

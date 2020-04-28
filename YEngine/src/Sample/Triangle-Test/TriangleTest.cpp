@@ -77,9 +77,9 @@ void TriangleTest::initBuffers()
 void TriangleTest::onDraw(const glm::mat4* transform, uint32_t)
 {
 	float vertices[] = {
-		0.5f, -0.5f, 0.0f, bottomRightColor.x,bottomRightColor.y,bottomRightColor.z, // bottom right
-		-0.5f, -0.5f, 0.0f,  bottomLeftColor.x,bottomLeftColor.y,bottomLeftColor.z,// bottom left
-		0.0f,  0.5f, 0.0f , topColor.x,topColor.y,topColor.z // top 
+		1.0f, -1.0f, 0.0f, bottomRightColor.x,bottomRightColor.y,bottomRightColor.z, // bottom right
+		-1.0f, -1.0f, 0.0f,  bottomLeftColor.x,bottomLeftColor.y,bottomLeftColor.z,// bottom left
+		0.0f,  1.0f, 0.0f , topColor.x,topColor.y,topColor.z // top 
 	};
     ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
@@ -95,12 +95,15 @@ void TriangleTest::onDraw(const glm::mat4* transform, uint32_t)
 	glBindVertexArray(m_VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	m_shader->use();
-	unsigned int pos = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_POSITION);
-	glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	//unsigned int pos = glGetAttribLocation(m_shader->GetProgram(), GLProgram::ATTRIBUTE_NAME_POSITION);
+	//glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(pos);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+//	glEnableVertexAttribArray(pos);
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	//glEnableVertexAttribArray(1);
+
+	m_shader->use();
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 //	ImGui::Render();
 	glBindVertexArray(0);
