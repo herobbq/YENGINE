@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4536CAFE-5B9D-449B-A834-DA19A56B0385}</ProjectGuid>
     <RootNamespace>YEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -73,7 +73,7 @@
     <LibraryPath>../3dsparty/glew/lib;../3dsparty/GLFW/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\MenuScene;.\src\Sample\AdvanceLight;.\src\Sample\Triangle-Test;.\src;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;..\3dsparty\assimp\include;..\3dsparty\imgui;$(IncludePath)</IncludePath>
+    <IncludePath>.\src\RenderBase;.\src\Sample\Texture-Test;.\src\Sample\Camera-Test;.\src\Sample\Skybox-Test;.\src\Sample\FarmeBuffer-Test;.\src\Sample\MenuScene;.\src\Sample\AdvanceLight;.\src\Sample\ShadowTest;.\src\Sample\NormalMapping;.\src\Sample\Triangle-Test;.\src;.\src\Sample;.\src\SourceTool;..\3dsparty\Imgae;..\3dsparty\glew\include;..\3dsparty\GLFW\include;..\3dsparty\assimp\include;..\3dsparty\imgui;$(IncludePath)</IncludePath>
     <LibraryPath>..\3dsparty\glew\lib;..\3dsparty\assimp\lib;..\3dsparty\GLFW\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\</OutDir>
   </PropertyGroup>
@@ -151,7 +151,9 @@
     <ClCompile Include="src\Sample\Light-Test\LightTest.cpp" />
     <ClCompile Include="src\Sample\MenuScene\MenuScene.cpp" />
     <ClCompile Include="src\Sample\Model-Test\ModelTest.cpp" />
+    <ClCompile Include="src\Sample\NormalMapping\NormalMapping.cpp" />
     <ClCompile Include="src\Sample\SeniorGL-Test\SeniorGLTest.cpp" />
+    <ClCompile Include="src\Sample\ShadowTest\ShadowTest.cpp" />
     <ClCompile Include="src\Sample\Skybox-Test\SkyboxTest.cpp" />
     <ClCompile Include="src\Sample\Texture-Test\TextureTest.cpp" />
     <ClCompile Include="src\Sample\Triangle-Test\TriangleTest.cpp" />
@@ -191,8 +193,10 @@
     <ClInclude Include="src\Sample\Light-Test\LightTest.h" />
     <ClInclude Include="src\Sample\MenuScene\MenuScene.h" />
     <ClInclude Include="src\Sample\Model-Test\ModelTest.h" />
+    <ClInclude Include="src\Sample\NormalMapping\NormalMapping.h" />
     <ClInclude Include="src\Sample\SampleInclude.h" />
     <ClInclude Include="src\Sample\SeniorGL-Test\SeniorGLTest.h" />
+    <ClInclude Include="src\Sample\ShadowTest\ShadowTest.h" />
     <ClInclude Include="src\Sample\Skybox-Test\SkyboxTest.h" />
     <ClInclude Include="src\Sample\Texture-Test\TextureTest.h" />
     <ClInclude Include="src\Sample\Triangle-Test\TriangleTest.h" />
@@ -211,6 +215,10 @@
     <None Include="src\Shader\AdvanceLight.vert" />
     <None Include="src\Shader\CameraTest.frag" />
     <None Include="src\Shader\CameraTest.vert" />
+    <None Include="src\Shader\depthquda.frag" />
+    <None Include="src\Shader\depthquda.vert" />
+    <None Include="src\Shader\ShadowTest.frag" />
+    <None Include="src\Shader\ShadowTest.vert" />
     <None Include="src\Shader\FrameBuffer.frag" />
     <None Include="src\Shader\FrameBuffer.vert" />
     <None Include="src\Shader\FrameBufferScreen.frag" />
@@ -228,6 +236,8 @@
     <None Include="src\Shader\SeniorGLColorTest.frag" />
     <None Include="src\Shader\SeniorGLTest.frag" />
     <None Include="src\Shader\SeniorGLTest.vert" />
+    <None Include="src\Shader\shadow_mapping_depth.frag" />
+    <None Include="src\Shader\shadow_mapping_depth.vert" />
     <None Include="src\Shader\Skybox.frag" />
     <None Include="src\Shader\Skybox.vert" />
     <None Include="src\Shader\Texture.frag" />

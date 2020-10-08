@@ -9,4 +9,5 @@
 #include "Model-Test/ModelTest.h"
 #include "SeniorGL-Test/SeniorGLTest.h"
 #include "AdvanceLight.h"
+#include "ShadowTest.h"
 #endif // SAMPLEINCLUDE_H_

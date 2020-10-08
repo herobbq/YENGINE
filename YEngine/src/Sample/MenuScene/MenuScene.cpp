@@ -18,6 +18,7 @@ MenuScene::MenuScene()
 	,m_bRenderModelTest(false)
 	, m_bRenderSeniorGLTest(false)
 	, m_bRenderAdvanceTest(false)
+	, m_bRenderShadowTest(false)
 	,m_pCameraTest(nullptr)
 	,m_pFrameBufferTest(nullptr)
 	,m_pLightTest(nullptr)
@@ -26,6 +27,7 @@ MenuScene::MenuScene()
 	,m_pTriangleTest(nullptr)
 	,m_pModelTest(nullptr)
 	, m_pSeniorGLTest(nullptr)
+	,m_pShadowTest(nullptr)
 	,m_pAdvanceGLTest(nullptr)
 	,m_deltaTime(0)
 	,m_lastFrame(0)
@@ -76,6 +78,7 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 	ImGui::Checkbox("ModelText", &m_bRenderModelTest);
 	ImGui::Checkbox("SeniorGLTest", &m_bRenderSeniorGLTest);
 	ImGui::Checkbox("AdvanceLightTest", &m_bRenderAdvanceTest);
+	ImGui::Checkbox("ShadowTest", &m_bRenderShadowTest);
 	ImGui::End();
 	if (YScene* renderScene = getScene())
 	{
@@ -254,6 +257,25 @@ void MenuScene::onDraw(const glm::mat4* transform, uint32_t)
 		else
 		{
 			renderScene->removeChild(m_pAdvanceGLTest);
+		}
+		if (m_bRenderShadowTest)
+		{
+			if (m_pShadowTest == nullptr)
+			{
+				m_pShadowTest = ShadowTest::create();
+			}
+			else
+			{
+				if (m_pShadowTest->getParent() == nullptr)
+				{
+					renderScene->addChild(m_pShadowTest, 1);
+				}
+
+			}
+		}
+		else
+		{
+			renderScene->removeChild(m_pShadowTest);
 		}
 	}
 	

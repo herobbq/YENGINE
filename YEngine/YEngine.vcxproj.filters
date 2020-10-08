@@ -70,6 +70,12 @@
     <Filter Include="Sample\AdvanceLight">
       <UniqueIdentifier>{6523dfaa-a800-47fe-8757-311ca1390ab4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sample\ShadowTes">
+      <UniqueIdentifier>{6d8392f1-c958-49e9-bb88-29e4c770ce08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sample\NormalMapping">
+      <UniqueIdentifier>{50db3b23-d012-44ad-85b2-4ba6277effa1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -170,6 +176,12 @@
     </ClCompile>
     <ClCompile Include="src\Sample\AdvanceLight\AdvanceLight.cpp">
       <Filter>Sample\AdvanceLight</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\ShadowTest\ShadowTest.cpp">
+      <Filter>Sample\ShadowTes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sample\NormalMapping\NormalMapping.cpp">
+      <Filter>Sample\NormalMapping</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -302,6 +314,12 @@
     <ClInclude Include="src\Sample\AdvanceLight\AdvanceLight.h">
       <Filter>Sample\AdvanceLight</Filter>
     </ClInclude>
+    <ClInclude Include="src\Sample\ShadowTest\ShadowTest.h">
+      <Filter>Sample\ShadowTes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sample\NormalMapping\NormalMapping.h">
+      <Filter>Sample\NormalMapping</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\CameraTest.frag">
@@ -392,6 +410,24 @@
       <Filter>Shader</Filter>
     </None>
     <None Include="src\Shader\AdvanceLight.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\depthquda.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\depthquda.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\shadow_mapping_depth.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\shadow_mapping_depth.vert">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ShadowTest.frag">
+      <Filter>Shader</Filter>
+    </None>
+    <None Include="src\Shader\ShadowTest.vert">
       <Filter>Shader</Filter>
     </None>
   </ItemGroup>

@@ -9,7 +9,7 @@
 #include "YDirector.h"
 #include "GLView.h"
 #include "YCamera.h"
-#include "SampleInclude.h"
+
 
 AdvanceLight::AdvanceLight()
 	:m_Texture(NULL)
